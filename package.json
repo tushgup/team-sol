@@ -1,0 +1,43 @@
+{
+	"framer": {
+		"id": "44bac4de-496b-4b9f-9300-1cee1e7d8ab8"
+	},
+	"devDependencies": {
+		"@framer/framer.device-hand-iphone-1": "^1.0.0",
+		"@framer/framer.device-hand-iphone-2": "^1.0.0",
+		"@framer/framer.device-skin-apple-ipad-air-silver": "^1.0.0",
+		"@framer/framer.device-skin-apple-ipad-air-space-gray": "^1.0.0",
+		"@framer/framer.device-skin-apple-ipad-pro-gold": "^1.0.0",
+		"@framer/framer.device-skin-apple-ipad-pro-space-gray": "^1.0.0",
+		"@framer/framer.device-skin-apple-iphone-x-silver": "^1.0.0",
+		"@framer/framer.device-skin-apple-iphone-xr-blue": "^1.0.0",
+		"@framer/framer.device-skin-apple-iphone-xr-red": "^1.0.0",
+		"@framer/framer.device-skin-apple-iphone-xr-silver": "^1.0.0",
+		"@framer/framer.device-skin-apple-iphone-xr-yellow": "^1.0.0",
+		"@framer/framer.device-skin-apple-iphone-xs-spacegrey": "^1.0.0",
+		"@framer/framer.device-skin-apple-macbook": "^1.0.0",
+		"@types/react": "^16.8"
+	},
+	"peerDependencies": {
+		"framer": "^1",
+		"react": "^16.8"
+	},
+	"author": "Tushar G",
+	"dependencies": {
+		"@framer/benjamin.arc": "^1.2.0",
+		"@framer/fitilala.accordion": "^1.4.0",
+		"@framer/framer.base": "^1.1.0",
+		"@framer/framer.default": "^1.102.0",
+		"@framer/framer.feather": "^1.1.0",
+		"@framer/ismael.sounds": "^1.10.0",
+		"@framer/rmarinac89.pulse": "^1.1.0",
+		"@framer/steveruizok.preview-in-browser": "^1.3.0",
+		"@framer/tishogeorgiev.switch": "^1.29.0",
+		"@framer/zhongerxin.motion-path": "^1.4.0",
+		"chart.js": "^2.8.0",
+		"lodash": "^4.17.11",
+		"react-chartjs-2": "^2.7.6",
+		"reactn": "^2.1.4",
+		"recharts": "^1.6.2"
+	}
+}
