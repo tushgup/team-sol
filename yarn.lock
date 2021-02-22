@@ -231,6 +231,11 @@
     "@framer/framer.default" "^1.90.0"
     react-feather "^2.0.9"
 
+"@framer/guischneider.tabs-to-go@^1.9.0":
+  version "1.9.0"
+  resolved "https://registry.framer.com/@framer/guischneider.tabs-to-go/-/@framer/guischneider.tabs-to-go-1.9.0.tgz#38bd35bda34526ee860892296890a4165ccbefae"
+  integrity sha512-oY6JAAFsgrj9HlI9tBJe6ysjvw+YWqPP0GyLwnuqThFA6nxTC295T5igvYTnYWta/BPLL7jc2r31NO4J+wi+oQ==
+
 "@framer/ismael.sounds@^1.10.0":
   version "1.10.0"
   resolved "https://registry.framer.com/@framer/ismael.sounds/-/@framer/ismael.sounds-1.10.0.tgz#6e284eea477dc7d5ba3ac19611ea53fefabee645"
