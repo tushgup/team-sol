@@ -9165,6 +9165,69 @@
                 "centerAnchorY" : 0.49893617021276621,
                 "children" : [
                   {
+                    "__class" : "FrameNode",
+                    "aspectRatio" : 1.6000000000000001,
+                    "bottom" : 608,
+                    "centerAnchorX" : 0.4784119106699754,
+                    "centerAnchorY" : 0.54931149981391914,
+                    "children" : [
+
+                    ],
+                    "clip" : false,
+                    "codeOverrideEnabled" : false,
+                    "constraintsLocked" : false,
+                    "duplicatedFrom" : [
+                      "W90KGGys0"
+                    ],
+                    "exportOptions" : [
+
+                    ],
+                    "fillColor" : "rgba(255,255,255,1)",
+                    "fillEnabled" : true,
+                    "fillImage" : "jyN6Gd3HE8jOFnjiHPKILNY1OM.png",
+                    "fillImageOriginalName" : "mars-map-detail-1750 1.png",
+                    "fillImagePixelHeight" : 900,
+                    "fillImagePixelWidth" : 1440,
+                    "fillImageResize" : "fill",
+                    "fillType" : "image",
+                    "framePreset" : null,
+                    "guidesX" : [
+
+                    ],
+                    "guidesY" : [
+
+                    ],
+                    "height" : 1205,
+                    "heightType" : 0,
+                    "id" : "NenXldZvC",
+                    "intrinsicHeight" : 900,
+                    "intrinsicWidth" : 1440,
+                    "isExternalMaster" : null,
+                    "isMaster" : false,
+                    "isTarget" : false,
+                    "left" : 0,
+                    "locked" : true,
+                    "name" : "mars_map_detail_1750_1",
+                    "opacity" : 1,
+                    "originalid" : null,
+                    "parentid" : "UubzzcntF",
+                    "previewSettings" : null,
+                    "radius" : 0,
+                    "radiusBottomLeft" : 0,
+                    "radiusBottomRight" : 0,
+                    "radiusIsRelative" : false,
+                    "radiusPerCorner" : false,
+                    "radiusTopLeft" : 0,
+                    "radiusTopRight" : 0,
+                    "replicaInfo" : null,
+                    "right" : 87,
+                    "rotation" : 0,
+                    "top" : null,
+                    "visible" : true,
+                    "width" : 1928,
+                    "widthType" : 0
+                  },
+                  {
                     "__class" : "CodeComponentNode",
                     "$control__alignment" : {
                       "type" : "enum",
@@ -13120,11 +13183,11 @@
                 },
                 "$control__directionLock" : {
                   "type" : "boolean",
-                  "value" : true
+                  "value" : false
                 },
                 "$control__dragEnabled" : {
                   "type" : "boolean",
-                  "value" : true
+                  "value" : false
                 },
                 "$control__gap" : {
                   "type" : "number",
@@ -13132,7 +13195,7 @@
                 },
                 "$control__momentum" : {
                   "type" : "boolean",
-                  "value" : true
+                  "value" : false
                 },
                 "$control__padding" : {
                   "isFused" : true,
@@ -13152,9 +13215,9 @@
                   "value" : false
                 },
                 "aspectRatio" : null,
-                "bottom" : 0,
+                "bottom" : 9,
                 "centerAnchorX" : 0.85069444444444464,
-                "centerAnchorY" : 0.87333333333333352,
+                "centerAnchorY" : 0.86777777777777798,
                 "clip" : true,
                 "codeComponentIdentifier" : "framer\/Page",
                 "codeComponentPackageVersion" : null,
@@ -13174,7 +13237,7 @@
                 "fillImagePixelWidth" : null,
                 "fillImageResize" : "fill",
                 "fillType" : "color",
-                "height" : 228,
+                "height" : 219,
                 "heightType" : 0,
                 "id" : "fyxdqLhRU",
                 "intrinsicHeight" : null,
@@ -16948,130 +17011,6 @@
                 "widthType" : 0
               },
               {
-                "__class" : "CodeComponentNode",
-                "$control__alignment" : {
-                  "type" : "enum",
-                  "value" : "start"
-                },
-                "$control__children" : {
-                  "type" : "array",
-                  "value" : [
-                    {
-                      "id" : "OB9tb8ch2",
-                      "type" : "componentinstance",
-                      "value" : "r9d5zmUNs"
-                    },
-                    {
-                      "id" : "cDoDaLxPU",
-                      "type" : "componentinstance",
-                      "value" : "UcQn6Qa5k"
-                    }
-                  ]
-                },
-                "$control__contentHeight" : {
-                  "type" : "enum",
-                  "value" : "auto"
-                },
-                "$control__contentWidth" : {
-                  "type" : "enum",
-                  "value" : "auto"
-                },
-                "$control__currentPage" : {
-                  "type" : "number",
-                  "value" : 0
-                },
-                "$control__defaultEffect" : {
-                  "type" : "enum",
-                  "value" : "none"
-                },
-                "$control__direction" : {
-                  "type" : "enum",
-                  "value" : "vertical"
-                },
-                "$control__directionLock" : {
-                  "type" : "boolean",
-                  "value" : true
-                },
-                "$control__dragEnabled" : {
-                  "type" : "boolean",
-                  "value" : true
-                },
-                "$control__gap" : {
-                  "type" : "number",
-                  "value" : 0
-                },
-                "$control__momentum" : {
-                  "type" : "boolean",
-                  "value" : true
-                },
-                "$control__padding" : {
-                  "isFused" : true,
-                  "type" : "fusednumber",
-                  "value" : {
-                    "fused" : [
-                      0,
-                      0,
-                      100,
-                      0
-                    ],
-                    "single" : 0
-                  }
-                },
-                "$control__wheelEnabled" : {
-                  "type" : "boolean",
-                  "value" : false
-                },
-                "aspectRatio" : null,
-                "bottom" : 0,
-                "centerAnchorX" : 0.85069444444444464,
-                "centerAnchorY" : 0.87333333333333352,
-                "clip" : true,
-                "codeComponentIdentifier" : "framer\/Page",
-                "codeComponentPackageVersion" : null,
-                "codeOverrideEnabled" : false,
-                "constraintsLocked" : false,
-                "duplicatedFrom" : [
-                  "W0x1FUF7G",
-                  "fyxdqLhRU"
-                ],
-                "exportOptions" : [
-
-                ],
-                "fillColor" : "rgba(255,255,255,1)",
-                "fillEnabled" : false,
-                "fillImage" : null,
-                "fillImageOriginalName" : null,
-                "fillImagePixelHeight" : null,
-                "fillImagePixelWidth" : null,
-                "fillImageResize" : "fill",
-                "fillType" : "color",
-                "height" : 228,
-                "heightType" : 0,
-                "id" : "RrEjR8nkl",
-                "intrinsicHeight" : null,
-                "intrinsicWidth" : null,
-                "left" : null,
-                "locked" : false,
-                "name" : null,
-                "opacity" : 1,
-                "originalid" : null,
-                "parentid" : "NQ4ouRtx4",
-                "previewSettings" : null,
-                "radius" : 0,
-                "radiusBottomLeft" : 0,
-                "radiusBottomRight" : 0,
-                "radiusIsRelative" : false,
-                "radiusPerCorner" : false,
-                "radiusTopLeft" : 0,
-                "radiusTopRight" : 0,
-                "right" : 15,
-                "rotation" : 0,
-                "top" : null,
-                "visible" : true,
-                "width" : 400,
-                "widthType" : 0
-              },
-              {
                 "__class" : "FrameNode",
                 "aspectRatio" : null,
                 "bottom" : null,
@@ -17949,6 +17888,130 @@
                 "visible" : true,
                 "width" : 400,
                 "widthType" : 0
+              },
+              {
+                "__class" : "CodeComponentNode",
+                "$control__alignment" : {
+                  "type" : "enum",
+                  "value" : "start"
+                },
+                "$control__children" : {
+                  "type" : "array",
+                  "value" : [
+                    {
+                      "id" : "OB9tb8ch2",
+                      "type" : "componentinstance",
+                      "value" : "r9d5zmUNs"
+                    },
+                    {
+                      "id" : "cDoDaLxPU",
+                      "type" : "componentinstance",
+                      "value" : "UcQn6Qa5k"
+                    }
+                  ]
+                },
+                "$control__contentHeight" : {
+                  "type" : "enum",
+                  "value" : "auto"
+                },
+                "$control__contentWidth" : {
+                  "type" : "enum",
+                  "value" : "auto"
+                },
+                "$control__currentPage" : {
+                  "type" : "number",
+                  "value" : 0
+                },
+                "$control__defaultEffect" : {
+                  "type" : "enum",
+                  "value" : "none"
+                },
+                "$control__direction" : {
+                  "type" : "enum",
+                  "value" : "vertical"
+                },
+                "$control__directionLock" : {
+                  "type" : "boolean",
+                  "value" : false
+                },
+                "$control__dragEnabled" : {
+                  "type" : "boolean",
+                  "value" : false
+                },
+                "$control__gap" : {
+                  "type" : "number",
+                  "value" : 0
+                },
+                "$control__momentum" : {
+                  "type" : "boolean",
+                  "value" : false
+                },
+                "$control__padding" : {
+                  "isFused" : true,
+                  "type" : "fusednumber",
+                  "value" : {
+                    "fused" : [
+                      0,
+                      0,
+                      100,
+                      0
+                    ],
+                    "single" : 0
+                  }
+                },
+                "$control__wheelEnabled" : {
+                  "type" : "boolean",
+                  "value" : false
+                },
+                "aspectRatio" : null,
+                "bottom" : 9,
+                "centerAnchorX" : 0.85069444444444464,
+                "centerAnchorY" : 0.86777777777777798,
+                "clip" : true,
+                "codeComponentIdentifier" : "framer\/Page",
+                "codeComponentPackageVersion" : null,
+                "codeOverrideEnabled" : false,
+                "constraintsLocked" : false,
+                "duplicatedFrom" : [
+                  "W0x1FUF7G",
+                  "fyxdqLhRU"
+                ],
+                "exportOptions" : [
+
+                ],
+                "fillColor" : "rgba(255,255,255,1)",
+                "fillEnabled" : false,
+                "fillImage" : null,
+                "fillImageOriginalName" : null,
+                "fillImagePixelHeight" : null,
+                "fillImagePixelWidth" : null,
+                "fillImageResize" : "fill",
+                "fillType" : "color",
+                "height" : 219,
+                "heightType" : 0,
+                "id" : "inOKZMPkc",
+                "intrinsicHeight" : null,
+                "intrinsicWidth" : null,
+                "left" : null,
+                "locked" : false,
+                "name" : null,
+                "opacity" : 1,
+                "originalid" : null,
+                "parentid" : "NQ4ouRtx4",
+                "previewSettings" : null,
+                "radius" : 0,
+                "radiusBottomLeft" : 0,
+                "radiusBottomRight" : 0,
+                "radiusIsRelative" : false,
+                "radiusPerCorner" : false,
+                "radiusTopLeft" : 0,
+                "radiusTopRight" : 0,
+                "right" : 15,
+                "rotation" : 0,
+                "top" : null,
+                "visible" : true,
+                "width" : 400,
+                "widthType" : 0
               }
             ],
             "clip" : true,
@@ -18143,7 +18206,7 @@
                 "fillImagePixelWidth" : null,
                 "fillImageResize" : "fill",
                 "fillType" : "color",
-                "height" : 42,
+                "height" : 24,
                 "id" : "PbRPnqGD_",
                 "locked" : false,
                 "name" : null,
@@ -18152,7 +18215,7 @@
                 "parentid" : "jdCx4wZz3",
                 "rotation" : 0,
                 "visible" : true,
-                "width" : 42,
+                "width" : 24,
                 "x" : 0,
                 "y" : 0
               }
@@ -18173,7 +18236,7 @@
             "fillImagePixelWidth" : null,
             "fillImageResize" : "fill",
             "fillType" : "color",
-            "height" : 42,
+            "height" : 24,
             "heightType" : 0,
             "id" : "jdCx4wZz3",
             "left" : -759,
@@ -18193,7 +18256,7 @@
             "sizeToFit" : true,
             "top" : 1184,
             "visible" : true,
-            "width" : 42,
+            "width" : 24,
             "widthType" : 0
           },
           {
@@ -18224,11 +18287,11 @@
             },
             "$control__duration" : {
               "type" : "number",
-              "value" : 2.8999999999999999
+              "value" : 2
             },
             "$control__playCounts" : {
               "type" : "number",
-              "value" : 3
+              "value" : 1
             },
             "$control__playState" : {
               "type" : "boolean",
@@ -18236,7 +18299,7 @@
             },
             "$control__rotation" : {
               "type" : "boolean",
-              "value" : true
+              "value" : false
             },
             "aspectRatio" : null,
             "bottom" : null,
@@ -23433,6 +23496,137 @@
             "top" : 1844,
             "visible" : true,
             "width" : 400,
+            "widthType" : 0
+          },
+          {
+            "__class" : "TextNode",
+            "autoSize" : false,
+            "bottom" : null,
+            "centerAnchorX" : 0,
+            "centerAnchorY" : 0,
+            "clip" : true,
+            "codeOverrideEnabled" : false,
+            "constraintsLocked" : false,
+            "duplicatedFrom" : null,
+            "exportOptions" : [
+
+            ],
+            "height" : 54,
+            "heightType" : 0,
+            "id" : "xQdeVDSEd",
+            "isTarget" : false,
+            "left" : 688,
+            "locked" : false,
+            "name" : null,
+            "opacity" : 1,
+            "originalid" : null,
+            "parentid" : "Apjd4yQbU",
+            "right" : null,
+            "rotation" : 0,
+            "styledText" : {
+              "__class" : "StyledTextDraft",
+              "blocks" : [
+                {
+                  "data" : {
+                    "direction" : "ltr",
+                    "emptyStyle" : [
+                      "FONT:Roboto-Regular",
+                      "SIZE:14",
+                      "LETTERSPACING:0",
+                      "LINEHEIGHT:1.2",
+                      "COLOR:hsl(0, 0%, 0%)"
+                    ]
+                  },
+                  "depth" : 0,
+                  "entityRanges" : [
+
+                  ],
+                  "inlineStyleRanges" : [
+                    {
+                      "length" : 9,
+                      "offset" : 0,
+                      "style" : "FONT:Roboto-Regular"
+                    },
+                    {
+                      "length" : 9,
+                      "offset" : 0,
+                      "style" : "SIZE:14"
+                    },
+                    {
+                      "length" : 9,
+                      "offset" : 0,
+                      "style" : "LETTERSPACING:0"
+                    },
+                    {
+                      "length" : 9,
+                      "offset" : 0,
+                      "style" : "LINEHEIGHT:1.2"
+                    },
+                    {
+                      "length" : 9,
+                      "offset" : 0,
+                      "style" : "COLOR:hsl(0, 0%, 0%)"
+                    }
+                  ],
+                  "key" : "JimzJ",
+                  "text" : "pet timer",
+                  "type" : "unstyled"
+                },
+                {
+                  "data" : {
+                    "direction" : "ltr",
+                    "emptyStyle" : [
+                      "FONT:Roboto-Regular",
+                      "SIZE:14",
+                      "LETTERSPACING:0",
+                      "LINEHEIGHT:1.2",
+                      "COLOR:hsl(0, 0%, 0%)"
+                    ]
+                  },
+                  "depth" : 0,
+                  "entityRanges" : [
+
+                  ],
+                  "inlineStyleRanges" : [
+                    {
+                      "length" : 24,
+                      "offset" : 0,
+                      "style" : "FONT:Roboto-Regular"
+                    },
+                    {
+                      "length" : 24,
+                      "offset" : 0,
+                      "style" : "SIZE:14"
+                    },
+                    {
+                      "length" : 24,
+                      "offset" : 0,
+                      "style" : "LETTERSPACING:0"
+                    },
+                    {
+                      "length" : 24,
+                      "offset" : 0,
+                      "style" : "LINEHEIGHT:1.2"
+                    },
+                    {
+                      "length" : 24,
+                      "offset" : 0,
+                      "style" : "COLOR:hsl(0, 0%, 0%)"
+                    }
+                  ],
+                  "key" : "bs5pm",
+                  "text" : "hovering over map points",
+                  "type" : "unstyled"
+                }
+              ],
+              "entityMap" : {
+
+              }
+            },
+            "textVerticalAlignment" : "top",
+            "top" : -98,
+            "visible" : true,
+            "width" : 392,
             "widthType" : 0
           }
         ],
