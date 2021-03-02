@@ -13132,7 +13132,7 @@
                 "rotation" : 0,
                 "stackAlignment" : "center",
                 "stackDirection" : "horizontal",
-                "stackDistribution" : "center",
+                "stackDistribution" : "start",
                 "stackEnabled" : true,
                 "stackGap" : 32,
                 "top" : null,
@@ -23387,118 +23387,6 @@
             "widthType" : 0
           },
           {
-            "__class" : "CodeComponentNode",
-            "$control__alignment" : {
-              "type" : "enum",
-              "value" : "start"
-            },
-            "$control__children" : {
-              "type" : "array",
-              "value" : [
-
-              ]
-            },
-            "$control__contentHeight" : {
-              "type" : "enum",
-              "value" : "stretch"
-            },
-            "$control__contentWidth" : {
-              "type" : "enum",
-              "value" : "stretch"
-            },
-            "$control__currentPage" : {
-              "type" : "number",
-              "value" : 0
-            },
-            "$control__defaultEffect" : {
-              "type" : "enum",
-              "value" : "none"
-            },
-            "$control__direction" : {
-              "type" : "enum",
-              "value" : "horizontal"
-            },
-            "$control__directionLock" : {
-              "type" : "boolean",
-              "value" : true
-            },
-            "$control__dragEnabled" : {
-              "type" : "boolean",
-              "value" : true
-            },
-            "$control__gap" : {
-              "type" : "number",
-              "value" : 0
-            },
-            "$control__momentum" : {
-              "type" : "boolean",
-              "value" : false
-            },
-            "$control__padding" : {
-              "isFused" : false,
-              "type" : "fusednumber",
-              "value" : {
-                "fused" : [
-                  0,
-                  0,
-                  0,
-                  0
-                ],
-                "single" : 0
-              }
-            },
-            "$control__wheelEnabled" : {
-              "type" : "boolean",
-              "value" : false
-            },
-            "aspectRatio" : null,
-            "bottom" : null,
-            "centerAnchorX" : 0.65347222222222245,
-            "centerAnchorY" : 1.1622222222222225,
-            "clip" : true,
-            "codeComponentIdentifier" : "framer\/Page",
-            "codeComponentPackageVersion" : null,
-            "codeOverrideEnabled" : false,
-            "constraintsLocked" : false,
-            "duplicatedFrom" : null,
-            "exportOptions" : [
-
-            ],
-            "fillColor" : "rgba(255,255,255,1)",
-            "fillEnabled" : false,
-            "fillImage" : null,
-            "fillImageOriginalName" : null,
-            "fillImagePixelHeight" : null,
-            "fillImagePixelWidth" : null,
-            "fillImageResize" : "fill",
-            "fillType" : "color",
-            "height" : 628,
-            "heightType" : 0,
-            "id" : "e3TLFMTCz",
-            "intrinsicHeight" : null,
-            "intrinsicWidth" : null,
-            "left" : -80,
-            "locked" : false,
-            "name" : "Sidebar Parent",
-            "opacity" : 1,
-            "originalid" : null,
-            "parentid" : "Apjd4yQbU",
-            "previewSettings" : null,
-            "radius" : 0,
-            "radiusBottomLeft" : 0,
-            "radiusBottomRight" : 0,
-            "radiusIsRelative" : false,
-            "radiusPerCorner" : false,
-            "radiusTopLeft" : 0,
-            "radiusTopRight" : 0,
-            "right" : null,
-            "rotation" : 0,
-            "top" : 1844,
-            "visible" : true,
-            "width" : 400,
-            "widthType" : 0
-          },
-          {
             "__class" : "TextNode",
             "autoSize" : false,
             "bottom" : null,
@@ -28171,5 +28059,5 @@
     ],
     "visible" : false
   },
-  "version" : 75
+  "version" : 76
 }
