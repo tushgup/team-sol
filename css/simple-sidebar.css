@@ -1,0 +1,32 @@
+body {
+  overflow: hidden;
+  background-color: #262626;
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+}
+
+#mapid { height: 95vh; width: "100%" }
+
+#nav-tab {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #262626;
+  border: none;
+  color: #fff;
+}
+
+.nav-tabs .nav-link {
+  color: #868686;
+  background-color: #201F1E;
+  width: 33%;
+}
+
+#nav-tabContent {
+  background-color: #262626;
+  padding: 16px;
+  height: 100%;
+}

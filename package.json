@@ -1,44 +1,39 @@
 {
-	"framer": {
-		"id": "44bac4de-496b-4b9f-9300-1cee1e7d8ab8"
-	},
-	"devDependencies": {
-		"@framer/framer.device-hand-iphone-1": "^1.0.0",
-		"@framer/framer.device-hand-iphone-2": "^1.0.0",
-		"@framer/framer.device-skin-apple-ipad-air-silver": "^1.0.0",
-		"@framer/framer.device-skin-apple-ipad-air-space-gray": "^1.0.0",
-		"@framer/framer.device-skin-apple-ipad-pro-gold": "^1.0.0",
-		"@framer/framer.device-skin-apple-ipad-pro-space-gray": "^1.0.0",
-		"@framer/framer.device-skin-apple-iphone-x-silver": "^1.0.0",
-		"@framer/framer.device-skin-apple-iphone-xr-blue": "^1.0.0",
-		"@framer/framer.device-skin-apple-iphone-xr-red": "^1.0.0",
-		"@framer/framer.device-skin-apple-iphone-xr-silver": "^1.0.0",
-		"@framer/framer.device-skin-apple-iphone-xr-yellow": "^1.0.0",
-		"@framer/framer.device-skin-apple-iphone-xs-spacegrey": "^1.0.0",
-		"@framer/framer.device-skin-apple-macbook": "^1.0.0",
-		"@types/react": "^16.8"
-	},
-	"peerDependencies": {
-		"framer": "^1",
-		"react": "^16.8"
-	},
-	"author": "Tushar G",
-	"dependencies": {
-		"@framer/benjamin.arc": "^1.2.0",
-		"@framer/fitilala.accordion": "^1.4.0",
-		"@framer/framer.base": "^1.1.0",
-		"@framer/framer.default": "^1.102.0",
-		"@framer/framer.feather": "^1.1.0",
-		"@framer/guischneider.tabs-to-go": "^1.9.0",
-		"@framer/ismael.sounds": "^1.10.0",
-		"@framer/rmarinac89.pulse": "^1.1.0",
-		"@framer/steveruizok.preview-in-browser": "^1.3.0",
-		"@framer/tishogeorgiev.switch": "^1.29.0",
-		"@framer/zhongerxin.motion-path": "^1.4.0",
-		"chart.js": "^2.8.0",
-		"lodash": "^4.17.11",
-		"react-chartjs-2": "^2.7.6",
-		"reactn": "^2.1.4",
-		"recharts": "^1.6.2"
-	}
+    "title": "Team Sol Explorers",
+    "name": "team-sol",
+    "version": "0.0.1",
+    "scripts": {
+        "start": "node_modules/.bin/gulp watch"
+    },
+    "description": "Researching and designing interfaces that assist astronauts in exploring Mars efficiently and autonomously. This is my GT thesis project in collaboration with NASA and JPL.",
+    "keywords": [
+        "css",
+        "sass",
+        "html",
+        "responsive",
+        "theme",
+        "template"
+    ],
+    "homepage": "https://tushar.work/design/nasa",
+    "license": "MIT",
+    "author": "Tushar Gupta",
+    "contributors": [
+        "Tushar Gupta",
+        "Kevin Key",
+        "Jack Gale"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tushgup/team-sol.git"
+    },
+    "dependencies": {
+        "bootstrap": "4.5.3",
+        "jquery": "3.5.1"
+    },
+    "devDependencies": {
+        "browser-sync": "2.26.13",
+        "del": "6.0.0",
+        "gulp": "4.0.2",
+        "merge-stream": "2.0.0"
+    }
 }
