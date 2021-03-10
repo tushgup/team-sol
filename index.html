@@ -267,7 +267,7 @@
     <script>
       var evLocation = [-12.802112, -141.679669];
       var mymap = L.map("mapid").setView(evLocation, 5);
-      L.tileLayer(
+      var marsLabeledMapLayer = L.tileLayer(
         // "https://mars.nasa.gov/mmgis-maps/M20/Layers/Jezero_Balanced_Visible_HiRISE_HRSCcolor_IHS_pansharp/{z}/{x}/{y}.png",
         "https://cartocdn-gusc.global.ssl.fastly.net/opmbuilder/api/v1/map/named/opm-mars-basemap-v0-2/all/{z}/{x}/{y}.png",
         {
@@ -276,7 +276,22 @@
           zoom: 3,
           tms: false,
         }
-      ).addTo(mymap);
+      ).addTo(mymap).setZIndex(0);
+
+      var marsVikingLayer = L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global/{z}/{x}/{y}.png', {
+			zoom: 3,
+			tms: true,
+		});
+
+    var marsGrayscale = L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/mola-gray/{z}/{x}/{y}.png', {
+			zoom: 3,
+			tms: true,
+		});
+
+    var marsHillshade = L.tileLayer('https://s3.us-east-2.amazonaws.com/opmmarstiles/hillshade-tiles/{z}/{x}/{y}.png', {
+			zoom: 3,
+			tms: true,
+		});
 
       var yellowCircleMarker = L.icon({
         iconUrl: "./assets/icons/YellowCircle.svg",
@@ -292,7 +307,7 @@
         popupAnchor: [-3, -76],
       });
 
-      var controlLayers = L.control.layers().addTo(mymap);
+      // var controlLayers = L.control.layers().addTo(mymap);
 
       var goZoneStyle = {
         // fillColor: 'rgba(49, 177, 77, 1)',
@@ -306,7 +321,7 @@
           style: goZoneStyle,
         }
       ).addTo(mymap);
-      controlLayers.addOverlay(goZoneLayer, "Go Zones");
+      // controlLayers.addOverlay(goZoneLayer, "Go Zones");
 
       var noGoLayer = L.geoJSON(
         { features: [NoGoZones] },
@@ -322,7 +337,7 @@
           },
         }
       ).addTo(mymap);
-      controlLayers.addOverlay(noGoLayer, "No Go Zones");
+      // controlLayers.addOverlay(noGoLayer, "No Go Zones");
 
       var markerLayer = L.geoJSON(
         { features: [markerLabels] },
@@ -334,7 +349,7 @@
           },
         }
       ).addTo(mymap);
-      controlLayers.addOverlay(markerLayer, "Markers");
+      // controlLayers.addOverlay(markerLayer, "Markers");
 
 
       var waypointLineStyle = {
@@ -368,6 +383,22 @@
           position: "topright",
         })
         .addTo(mymap);
+
+        var baseMaps = {
+    "Label Map": marsLabeledMapLayer,
+    "Viking Map": marsVikingLayer,
+    "Greyscale Map": marsGrayscale,
+    "Hillshade Map": marsHillshade
+    };
+
+    var overlayMaps = {
+    "Go Zones": goZoneLayer,
+    "No Go Zones": noGoLayer,
+    "Markers": markerLayer
+    };
+
+    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+
     </script>
   </body>
 </html>
