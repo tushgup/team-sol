@@ -30,3 +30,7 @@ body {
   padding: 16px;
   height: 100%;
 }
+
+.accordion-button {
+  color: #fff;
+}
