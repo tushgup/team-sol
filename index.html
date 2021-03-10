@@ -278,6 +278,16 @@
         }
       ).addTo(mymap).setZIndex(0);
 
+      var marsShaded = L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
+			zoom: 3,
+			tms: true,
+		})
+
+    var marsMOLA = L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/mola-color/{z}/{x}/{y}.png', {
+			zoom: 3,
+			tms: true,
+		});
+
       var marsVikingLayer = L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global/{z}/{x}/{y}.png', {
 			zoom: 3,
 			tms: true,
@@ -386,6 +396,8 @@
 
         var baseMaps = {
     "Label Map": marsLabeledMapLayer,
+    "Shaded Map": marsShaded,
+    "Color Coded MOLA Elevation Map": marsMOLA,
     "Viking Map": marsVikingLayer,
     "Greyscale Map": marsGrayscale,
     "Hillshade Map": marsHillshade
