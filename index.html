@@ -254,76 +254,6 @@
       </div>
     </div>
 
-    <!-- Page Content -->
-    <!-- <header class="bd-header bg-dark py-3 d-flex align-items-stretch border-bottom border-dark">
-      <div class="container-fluid d-flex align-items-center">
-        <h1 class="d-flex align-items-center fs-4 text-white mb-0">
-          Team Sol
-        </h1>
-      </div>
-    </header>
-
-      <aside class="bd-aside sticky-xl-top text-muted align-self-start mb-3 mb-xl-5 px-2">
-        <nav>
-          <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <button class="nav-link active" id="nav-home-tab" data-bs-toggle="tab" data-bs-target="#nav-home" type="button" role="tab" aria-controls="nav-home" aria-selected="true">Procedure</button>
-            <button class="nav-link" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Tools</button>
-            <button class="nav-link" id="nav-contact-tab" data-bs-toggle="tab" data-bs-target="#nav-contact" type="button" role="tab" aria-controls="nav-contact" aria-selected="false">Zones</button>
-          </div>
-        </nav>
-        <div class="tab-content" id="nav-tabContent">
-          <div class="tab-pane fade show active p-4" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            <div class="accordion" id="accordionExample">
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingOne">
-                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                    Accordion Item #1
-                  </button>
-                </h2>
-                <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>This is the first item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingTwo">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    Accordion Item #2
-                  </button>
-                </h2>
-                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                  </div>
-                </div>
-              </div>
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="headingThree">
-                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    Accordion Item #3
-                  </button>
-                </h2>
-                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                  <div class="accordion-body">
-                    <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-          </div>
-          <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">Tools Content</div>
-          <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">Zone Info</div>
-        </div>
-        
-      </aside>
-
-      <div class="bd-cheatsheet container-fluid bg-body">
-        <div id="mapid"></div>
-      </div> -->
-
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script
@@ -331,10 +261,113 @@
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
       crossorigin="anonymous"
     ></script>
-    <script src="js/main.js"></script>
+    <script src="js/map_data.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
+      var evLocation = [-12.802112, -141.679669];
+      var mymap = L.map("mapid").setView(evLocation, 5);
+      L.tileLayer(
+        // "https://mars.nasa.gov/mmgis-maps/M20/Layers/Jezero_Balanced_Visible_HiRISE_HRSCcolor_IHS_pansharp/{z}/{x}/{y}.png",
+        "https://cartocdn-gusc.global.ssl.fastly.net/opmbuilder/api/v1/map/named/opm-mars-basemap-v0-2/all/{z}/{x}/{y}.png",
+        {
+          attribution:
+            'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+          zoom: 3,
+          tms: false,
+        }
+      ).addTo(mymap);
+
+      var yellowCircleMarker = L.icon({
+        iconUrl: "./assets/icons/YellowCircle.svg",
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [-3, -76],
+      });
+
+      var yellowSquareMarker = L.icon({
+        iconUrl: "./assets/icons/YellowSquare.svg",
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [-3, -76],
+      });
+
+      var controlLayers = L.control.layers().addTo(mymap);
+
+      var goZoneStyle = {
+        // fillColor: 'rgba(49, 177, 77, 1)',
+        color: "rgba(49, 177, 77, 1)",
+        weight: 5,
+      };
+
+      var goZoneLayer = L.geoJSON(
+        { features: [GoZones] },
+        {
+          style: goZoneStyle,
+        }
+      ).addTo(mymap);
+      controlLayers.addOverlay(goZoneLayer, "Go Zones");
+
+      var noGoLayer = L.geoJSON(
+        { features: [NoGoZones] },
+        {
+          // style: NoGoZoneStyle,
+          pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng, {
+              radius: feature.properties.radius,
+              fillColor: "rgba(231, 24, 24, 0.8)",
+              color: "rgba(231, 24, 24, 1)",
+              weight: 1,
+            });
+          },
+        }
+      ).addTo(mymap);
+      controlLayers.addOverlay(noGoLayer, "No Go Zones");
+
+      var markerLayer = L.geoJSON(
+        { features: [markerLabels] },
+        {
+          pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, {
+              icon: feature.properties.type === 'ev' ? yellowCircleMarker : yellowSquareMarker,
+            });
+          },
+        }
+      ).addTo(mymap);
+      controlLayers.addOverlay(markerLayer, "Markers");
+
+
+      var waypointLineStyle = {
+        color: "black",
+        weight: 1,
+        opacity: 0.65,
+      };
+
+      L.geoJSON(
+        { features: [actualWaypoints] },
+        {
+          style: waypointLineStyle,
+        }
+      ).addTo(mymap);
+
+      var popup = L.popup();
+
+      function onMapClick(e) {
+        popup
+          .setLatLng(e.latlng)
+          .setContent("You clicked the map at " + e.latlng.toString())
+          .openOn(mymap);
+      }
+
+      mymap.on("click", onMapClick);
+
+      L.control
+        .scale({
+          metric: true,
+          imperial: true,
+          position: "topright",
+        })
+        .addTo(mymap);
     </script>
   </body>
 </html>
