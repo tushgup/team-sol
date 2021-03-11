@@ -54,7 +54,6 @@ body {
 
 #nav-tabContent {
   background-color: #262626;
-  height: 89vh;
 }
 
 .accordion-button {
@@ -89,4 +88,45 @@ body {
   align-items: center;
   padding-right: 8px;
   justify-content: space-between;
+}
+
+.sidebarContent {
+  display: flex;
+  height: 95vh;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.consumables {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.consumableCard {
+  text-align: center;
+  padding: 16px;
+}
+
+.consumableCard > h5 {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  color: #31B14D;
+  font-weight: 600;
+}
+
+.consumableCard > p {
+  margin-bottom: 4px;
+  color: lightgray;
+  font-size: 0.9em;
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.consumableCard > h6 {
+  margin-top: 8px;
+  margin-bottom: 4px;
+  color: #fff;
+  font-size: 0.95em;
+  font-weight: 500;
 }
