@@ -150,6 +150,14 @@ body {
   padding: 8px;
 }
 
+a.leaflet-popup-remove-button, a.leaflet-popup-edit-button, a.leaflet-popup-input-cancel, a.leaflet-popup-input-save {
+  color: #ff9900;
+}
+
+a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leaflet-popup-input-cancel:hover, a.leaflet-popup-input-save:hover {
+  color: #ff9900;
+}
+
 .leaflet-container a.leaflet-popup-close-button {
   top: 4px;
   right: 8px;
