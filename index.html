@@ -44,9 +44,13 @@
   <body>
     <div class="Nav">
       <nav class="navbar navbar-dark" style="background-color: #262626">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Team Sol</a>
-          <button
+        <div class="container-fluid p-2">
+          <!-- <a class="navbar-brand" href="#"><i class="ph-house mx-2"></i></a> -->
+          <p class="my-0 mx-4">SOL 125</p>
+          <p class="my-0"><span id='date-time'></span></p>
+          <p class="my-0 mx-4">EVA #3231</p>
+
+          <!-- <button
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
@@ -72,7 +76,7 @@
             <span class="navbar-text">
               Navbar text with an inline element
             </span>
-          </div>
+          </div> -->
         </div>
       </nav>
     </div>
@@ -277,6 +281,16 @@
 
     <!-- Menu Toggle Script -->
     <script>
+      const dateDiv = document.getElementById('date-time');
+
+      function myDateFunction() {
+        const now = new Date();
+        const nowStr = now.toUTCString();
+        dateDiv.innerHTML = nowStr;
+      }
+
+      setInterval(myDateFunction, 1000);
+
       var evLocation = [-12.802112, -141.679669];
       var mymap = L.map("mapid").setView(evLocation, 5);
       // L.marker([-12.802112, -141.679669]).addTo(mymap);
