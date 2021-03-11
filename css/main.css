@@ -150,10 +150,6 @@ body {
   padding: 8px;
 }
 
-.leaflet-container a {
-  color: #ff9900;
-}
-
 .leaflet-container a.leaflet-popup-close-button {
   top: 4px;
   right: 8px;
