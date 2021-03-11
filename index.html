@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
 
@@ -26,8 +23,9 @@
       crossorigin=""
     />
 
-    <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />  
+    <link rel="stylesheet" href="css/draw-on-map.css" />  
 
+    <script src="https://unpkg.com/phosphor-icons"></script>
 
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
@@ -76,8 +74,8 @@
       </nav>
     </div>
 
-    <div class="row">
-      <div class="col-9 px-0">
+    <div class="container-fluid row mainContent">
+      <div class="col-9 mapContainer px-0">
         <div id="mapid"></div>
       </div>
       <div class="col-3 px-0">
@@ -263,7 +261,7 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""
   ></script>
-    <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.min.js"></script>  
+    <script src="js/draw-on-map.min.js"></script>  
     <script src="js/map_data.js"></script>
 
     <!-- Menu Toggle Script -->
