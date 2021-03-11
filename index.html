@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Team Sol</title>
+    <title>Team Sol Explorers x NASA Prototype</title>
 
     <!-- Bootstrap core CSS -->
     <link
@@ -25,7 +25,7 @@
       integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
       crossorigin=""
     />
-
+    <link rel="stylesheet" href="css/popupMod.css" />
     <link rel="stylesheet" href="css/draw-on-map.css" />
 
     <script src="https://unpkg.com/phosphor-icons"></script>
@@ -132,9 +132,16 @@
                       <div class="accordionLabel">
                         <div>
                           <h5>Task 1</h5>
-                          <p style="text-transform: uppercase; color: gray;" class="my-0">Zone A (Sites 1-3)</p>
+                          <p
+                            style="text-transform: uppercase; color: gray"
+                            class="my-0"
+                          >
+                            Zone A (Sites 1-3)
+                          </p>
                         </div>
-                        <span class="nestedTabTextStyle mx-2"> <i class="ph-timer mx-2"></i> 30 min </span>
+                        <span class="nestedTabTextStyle mx-2">
+                          <i class="ph-timer mx-2"></i> 30 min
+                        </span>
                       </div>
                     </button>
                   </h2>
@@ -180,13 +187,20 @@
                       aria-expanded="false"
                       aria-controls="flush-collapseTwo"
                     >
-                    <div class="accordionLabel">
-                      <div>
-                        <h5>Task 2</h5>
-                        <p style="text-transform: uppercase; color: gray;" class="my-0">Zone B (Sites 3-6)</p>
+                      <div class="accordionLabel">
+                        <div>
+                          <h5>Task 2</h5>
+                          <p
+                            style="text-transform: uppercase; color: gray"
+                            class="my-0"
+                          >
+                            Zone B (Sites 3-6)
+                          </p>
+                        </div>
+                        <span class="nestedTabTextStyle mx-2">
+                          <i class="ph-timer mx-2"></i> 90 min
+                        </span>
                       </div>
-                      <span class="nestedTabTextStyle mx-2"> <i class="ph-timer mx-2"></i> 90 min </span>
-                    </div>
                     </button>
                   </h2>
                   <div
@@ -196,10 +210,10 @@
                     data-bs-parent="#accordionFlushExample"
                   >
                     <div class="accordion-body">
-                      Placeholder content for this accordion, which is intended to
-                      demonstrate the <code>.accordion-flush</code> class. This is
-                      the second item's accordion body. Let's imagine this being
-                      filled with some actual content.
+                      Placeholder content for this accordion, which is intended
+                      to demonstrate the <code>.accordion-flush</code> class.
+                      This is the second item's accordion body. Let's imagine
+                      this being filled with some actual content.
                     </div>
                   </div>
                 </div>
@@ -213,13 +227,20 @@
                       aria-expanded="false"
                       aria-controls="flush-collapseThree"
                     >
-                    <div class="accordionLabel">
-                      <div>
-                        <h5>Task 3</h5>
-                        <p style="text-transform: uppercase; color: gray;" class="my-0">Zone C (Sites 6-9)</p>
+                      <div class="accordionLabel">
+                        <div>
+                          <h5>Task 3</h5>
+                          <p
+                            style="text-transform: uppercase; color: gray"
+                            class="my-0"
+                          >
+                            Zone C (Sites 6-9)
+                          </p>
+                        </div>
+                        <span class="nestedTabTextStyle mx-2">
+                          <i class="ph-timer mx-2"></i> 60 min
+                        </span>
                       </div>
-                      <span class="nestedTabTextStyle mx-2"> <i class="ph-timer mx-2"></i> 60 min </span>
-                    </div>
                     </button>
                   </h2>
                   <div
@@ -229,13 +250,13 @@
                     data-bs-parent="#accordionFlushExample"
                   >
                     <div class="accordion-body">
-                      Placeholder content for this accordion, which is intended to
-                      demonstrate the <code>.accordion-flush</code> class. This is
-                      the third item's accordion body. Nothing more exciting
-                      happening here in terms of content, but just filling up the
-                      space to make it look, at least at first glance, a bit more
-                      representative of how this would look in a real-world
-                      application.
+                      Placeholder content for this accordion, which is intended
+                      to demonstrate the <code>.accordion-flush</code> class.
+                      This is the third item's accordion body. Nothing more
+                      exciting happening here in terms of content, but just
+                      filling up the space to make it look, at least at first
+                      glance, a bit more representative of how this would look
+                      in a real-world application.
                     </div>
                   </div>
                 </div>
@@ -261,8 +282,8 @@
         </div>
         <div class="consumables">
           <div class="consumableCard">
-            <h5>01:34:23</h5>
-            <p>Oxygen Time</p>
+            <h5 id="oxygenTimer">01:34:23</h5>
+            <p>Time Remaining</p>
           </div>
           <div class="consumableCard">
             <h5>01:12:54</h5>
@@ -270,9 +291,9 @@
           </div>
           <div class="consumableCard">
             <h5>00:44:32</h5>
-            <p>Battery Power</p>
+            <p>Oxygen</p>
           </div>
-        </div>          
+        </div>
       </div>
     </div>
 
@@ -288,11 +309,30 @@
       integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
       crossorigin=""
     ></script>
+    <script src="js/popupMod.js" type="text/javascript"></script>
     <script src="js/draw-on-map.min.js"></script>
     <script src="js/map_data.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
+      // Running Oxygen Consumable Timer
+      var countDownDate = new Date().getTime() + 3 * 60 * 60 * 1000;
+      var timeClear = setInterval(function () {
+        var now = new Date().getTime();
+        var timeLeft = countDownDate - now;
+        var hours = Math.floor(
+          (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+        document.querySelector("#oxygenTimer").innerHTML =
+          hours + ":" + minutes + ":" + seconds;
+        if (timeLeft < 0) {
+          clearInterval(timeClear);
+          document.querySelector(".oxygenTimer").innerHTML = "00:00:00";
+        }
+      }, 1000);
+
       const dateDiv = document.getElementById("date-time");
 
       function myDateFunction() {
@@ -369,17 +409,27 @@
         iconUrl: "./assets/icons/YellowCircle.svg",
         iconSize: [32, 32],
         iconAnchor: [16, 16],
-        popupAnchor: [-3, -76],
+        popupAnchor: [0, -10],
       });
 
       var yellowSquareMarker = L.icon({
         iconUrl: "./assets/icons/YellowSquare.svg",
         iconSize: [32, 32],
         iconAnchor: [16, 16],
-        popupAnchor: [-3, -76],
+        popupAnchor: [20, 10],
       });
 
-      // var controlLayers = L.control.layers().addTo(mymap);
+      function onEachFeature(feature, layer) {
+        var popupContent ="<p>[" +
+          feature.geometry.coordinates +
+          "]:</p>";
+
+        if (feature.properties && feature.properties.popupContent) {
+          popupContent += feature.properties.popupContent;
+        }
+
+        layer.bindPopup(popupContent, { removable: true, editable: true });
+      }
 
       var goZoneStyle = {
         // fillColor: 'rgba(49, 177, 77, 1)',
@@ -393,7 +443,6 @@
           style: goZoneStyle,
         }
       ).addTo(mymap);
-      // controlLayers.addOverlay(goZoneLayer, "Go Zones");
 
       var noGoLayer = L.geoJSON(
         { features: [NoGoZones] },
@@ -409,11 +458,11 @@
           },
         }
       ).addTo(mymap);
-      // controlLayers.addOverlay(noGoLayer, "No Go Zones");
 
       var markerLayer = L.geoJSON(
         { features: [markerLabels] },
         {
+          onEachFeature: onEachFeature,
           pointToLayer: function (feature, latlng) {
             return L.marker(latlng, {
               icon:

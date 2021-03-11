@@ -47,7 +47,7 @@ body {
 }
 
 .nestedTabTextStyle {
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -65,20 +65,20 @@ body {
 }
 
 .accordion-button::after {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>")
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 }
 
 .accordion-button:not(.collapsed)::after {
-  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FF9900'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>")
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FF9900'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>");
 }
 
 .accordion-button:not(.collapsed) {
-  color: #FF9900;
+  color: #ff9900;
   background: #262626;
 }
 
 .accordion-button:focus {
-  border-color: #FF9900;
+  border-color: #ff9900;
   box-shadow: none;
 }
 
@@ -111,8 +111,8 @@ body {
 .consumableCard > h5 {
   margin-top: 4px;
   margin-bottom: 4px;
-  color: #31B14D;
-  font-weight: 600;
+  color: #31b14d;
+  font-weight: 500;
 }
 
 .consumableCard > p {
@@ -129,4 +129,32 @@ body {
   color: #fff;
   font-size: 0.95em;
   font-weight: 500;
+}
+
+.leaflet-touch .leaflet-control-layers,
+.leaflet-touch .leaflet-bar {
+  /* background-color: #262626; */
+  /* color: #fff; */
+  border: none;
+  background-clip: padding-box;
+}
+
+.leaflet-container {
+  font-family: "Rubik", sans-serif;
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+  background-color: #262626;
+  color: #fff;
+  font-size: 1.1em;
+  padding: 8px;
+}
+
+.leaflet-container a {
+  color: #ff9900;
+}
+
+.leaflet-container a.leaflet-popup-close-button {
+  top: 4px;
+  right: 8px;
 }
