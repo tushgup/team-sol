@@ -1,11 +1,11 @@
-body {
+/* body {
   padding: 0;
   margin: 0;
 }
 html, body {
   height: 100%;
   width: 100vw;
-}
+} */
 
 body {
   /* overflow: hidden; */
@@ -54,10 +54,39 @@ body {
 
 #nav-tabContent {
   background-color: #262626;
-  padding: 16px;
-  height: 100%;
+  height: 89vh;
 }
 
 .accordion-button {
   color: #fff;
+}
+
+.accordion-button.collapsed {
+  border-bottom: 1px solid #616161;
+}
+
+.accordion-button::after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>")
+}
+
+.accordion-button:not(.collapsed)::after {
+  background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23FF9900'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>")
+}
+
+.accordion-button:not(.collapsed) {
+  color: #FF9900;
+  background: #262626;
+}
+
+.accordion-button:focus {
+  border-color: #FF9900;
+  box-shadow: none;
+}
+
+.accordionLabel {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding-right: 8px;
+  justify-content: space-between;
 }
