@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/popupMod.css" />
     <link rel="stylesheet" href="css/draw-on-map.css" />
     <link rel="stylesheet" href="css/L.Control.MousePosition.css" />
+    <link rel="stylesheet" href="css/leaflet.contextmenu.min.css" />
 
     <script src="https://unpkg.com/phosphor-icons"></script>
 
@@ -313,6 +314,7 @@
     <script src="js/popupMod.js" type="text/javascript"></script>
     <script src="js/draw-on-map.min.js"></script>
     <script src="js/L.Control.MousePosition.js"></script>
+    <script src="js/leaflet.contextmenu.min.js"></script>
     <script src="js/map_data.js"></script>
 
     <!-- Menu Toggle Script -->
@@ -345,10 +347,52 @@
 
       setInterval(myDateFunction, 1000);
 
-      var evLocation = [-12.802112, -141.679669];
-      var mymap = L.map("mapid").setView(evLocation, 5);
+      var mymap, evLocation = [-12.802112, -141.679669];
+      // var mymap = L.map("mapid").setView(evLocation, 5);
 
-      L.control.mousePosition({lngFirst: true}).addTo(mymap);
+      function showCoordinates(e) {
+        alert(e.latlng);
+      }
+
+      function centerMap(e) {
+        mymap.panTo(e.latlng);
+      }
+
+      function zoomIn(e) {
+        mymap.zoomIn();
+      }
+
+      function zoomOut(e) {
+        mymap.zoomOut();
+      }
+
+      mymap = L.map("mapid", {
+        contextmenu: true,
+        contextmenuWidth: 140,
+        contextmenuItems: [
+          {
+            text: "Show coordinates",
+            callback: showCoordinates,
+          },
+          {
+            text: "Center map here",
+            callback: centerMap,
+          },
+          "-",
+          {
+            text: "Zoom in",
+            icon: "assets/icons/zoom-in.png",
+            callback: zoomIn,
+          },
+          {
+            text: "Zoom out",
+            icon: "assets/icons/zoom-out.png",
+            callback: zoomOut,
+          },
+        ],
+      }).setView(evLocation, 5);
+
+      L.control.mousePosition({ lngFirst: true }).addTo(mymap);
 
       // add leaflet-geoman controls with some options to the map
       mymap.pm.addControls({
@@ -423,9 +467,7 @@
       });
 
       function onEachFeature(feature, layer) {
-        var popupContent ="<p>[" +
-          feature.geometry.coordinates +
-          "]:</p>";
+        var popupContent = "<p>[" + feature.geometry.coordinates + "]:</p>";
 
         if (feature.properties && feature.properties.popupContent) {
           popupContent += feature.properties.popupContent;
