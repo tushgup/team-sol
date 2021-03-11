@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <meta name="description" content="" />
     <meta name="author" content="" />
 
@@ -23,7 +26,7 @@
       crossorigin=""
     />
 
-    <link rel="stylesheet" href="css/draw-on-map.css" />  
+    <link rel="stylesheet" href="css/draw-on-map.css" />
 
     <script src="https://unpkg.com/phosphor-icons"></script>
 
@@ -74,7 +77,7 @@
       </nav>
     </div>
 
-    <div class="container-fluid row mainContent">
+    <div class="container-fluid row">
       <div class="col-9 mapContainer px-0">
         <div id="mapid"></div>
       </div>
@@ -95,7 +98,10 @@
               aria-controls="nav-home"
               aria-selected="true"
             >
+            <span class="nestedTabTextStyle">
+              <i class="ph-book-open mx-2"></i>
               Procedure
+            </span>           
             </button>
             <button
               class="nav-link"
@@ -107,7 +113,10 @@
               aria-controls="nav-profile"
               aria-selected="false"
             >
+            <span class="nestedTabTextStyle">
+              <i class="ph-wrench mx-2"></i>
               Tools
+            </span>   
             </button>
             <button
               class="nav-link"
@@ -119,7 +128,9 @@
               aria-controls="nav-contact"
               aria-selected="false"
             >
-              Zones
+            <span class="nestedTabTextStyle">
+              <i class="ph-map-pin-line mx-2"></i>              Zones
+            </span>   
             </button>
           </div>
         </nav>
@@ -257,24 +268,23 @@
       crossorigin="anonymous"
     ></script>
     <script
-    src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-    crossorigin=""
-  ></script>
-    <script src="js/draw-on-map.min.js"></script>  
+      src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+      integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+      crossorigin=""
+    ></script>
+    <script src="js/draw-on-map.min.js"></script>
     <script src="js/map_data.js"></script>
 
     <!-- Menu Toggle Script -->
     <script>
       var evLocation = [-12.802112, -141.679669];
       var mymap = L.map("mapid").setView(evLocation, 5);
-      // L.marker([-12.802112, -141.679669]).addTo(mymap);  
+      // L.marker([-12.802112, -141.679669]).addTo(mymap);
 
-      // add leaflet-geoman controls with some options to the map  
-      mymap.pm.addControls({  
-        position: 'topleft',  
-        drawCircle: false,  
-      });  
+      // add leaflet-geoman controls with some options to the map
+      mymap.pm.addControls({
+        position: "topleft",
+      });
 
       var marsLabeledMapLayer = L.tileLayer(
         // "https://mars.nasa.gov/mmgis-maps/M20/Layers/Jezero_Balanced_Visible_HiRISE_HRSCcolor_IHS_pansharp/{z}/{x}/{y}.png",
@@ -285,32 +295,49 @@
           zoom: 3,
           tms: false,
         }
-      ).addTo(mymap).setZIndex(0);
+      )
+        .addTo(mymap)
+        .setZIndex(0);
 
-      var marsShaded = L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png', {
-			zoom: 3,
-			tms: true,
-		})
+      var marsShaded = L.tileLayer(
+        "http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/celestia_mars-shaded-16k_global/{z}/{x}/{y}.png",
+        {
+          zoom: 3,
+          tms: true,
+        }
+      );
 
-    var marsMOLA = L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/mola-color/{z}/{x}/{y}.png', {
-			zoom: 3,
-			tms: true,
-		});
+      var marsMOLA = L.tileLayer(
+        "http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/mola-color/{z}/{x}/{y}.png",
+        {
+          zoom: 3,
+          tms: true,
+        }
+      );
 
-      var marsVikingLayer = L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global/{z}/{x}/{y}.png', {
-			zoom: 3,
-			tms: true,
-		});
+      var marsVikingLayer = L.tileLayer(
+        "http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/viking_mdim21_global/{z}/{x}/{y}.png",
+        {
+          zoom: 3,
+          tms: true,
+        }
+      );
 
-    var marsGrayscale = L.tileLayer('http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/mola-gray/{z}/{x}/{y}.png', {
-			zoom: 3,
-			tms: true,
-		});
+      var marsGrayscale = L.tileLayer(
+        "http://s3-eu-west-1.amazonaws.com/whereonmars.cartodb.net/mola-gray/{z}/{x}/{y}.png",
+        {
+          zoom: 3,
+          tms: true,
+        }
+      );
 
-    var marsHillshade = L.tileLayer('https://s3.us-east-2.amazonaws.com/opmmarstiles/hillshade-tiles/{z}/{x}/{y}.png', {
-			zoom: 3,
-			tms: true,
-		});
+      var marsHillshade = L.tileLayer(
+        "https://s3.us-east-2.amazonaws.com/opmmarstiles/hillshade-tiles/{z}/{x}/{y}.png",
+        {
+          zoom: 3,
+          tms: true,
+        }
+      );
 
       var yellowCircleMarker = L.icon({
         iconUrl: "./assets/icons/YellowCircle.svg",
@@ -363,37 +390,52 @@
         {
           pointToLayer: function (feature, latlng) {
             return L.marker(latlng, {
-              icon: feature.properties.type === 'ev' ? yellowCircleMarker : yellowSquareMarker,
+              icon:
+                feature.properties.type === "ev"
+                  ? yellowCircleMarker
+                  : yellowSquareMarker,
             });
           },
         }
       ).addTo(mymap);
       // controlLayers.addOverlay(markerLayer, "Markers");
 
-
-      var waypointLineStyle = {
-        color: "black",
-        weight: 1,
-        opacity: 0.65,
+      var plannedWaypointLineStyle = {
+        color: "#A7A7A7",
+        // dashArray: 4,
+        weight: 6,
       };
 
-      L.geoJSON(
-        { features: [actualWaypoints] },
+      var plannedWaypoints = L.geoJSON(
+        { features: [plannedWaypoints] },
         {
-          style: waypointLineStyle,
+          style: plannedWaypointLineStyle,
         }
       ).addTo(mymap);
 
-      // var popup = L.popup();
+      var actualWaypointLineStyle = {
+        color: "white",
+        dashArray: 4,
+        weight: 2,
+      };
 
-      // function onMapClick(e) {
-      //   popup
-      //     .setLatLng(e.latlng)
-      //     .setContent("You clicked the map at " + e.latlng.toString())
-      //     .openOn(mymap);
-      // }
+      var actualWaypoints = L.geoJSON(
+        { features: [actualWaypoints] },
+        {
+          style: actualWaypointLineStyle,
+        }
+      ).addTo(mymap);
 
-      // mymap.on("click", onMapClick);
+      var popup = L.popup();
+
+      function onMapClick(e) {
+        popup
+          .setLatLng(e.latlng)
+          .setContent("You clicked the map at " + e.latlng.toString())
+          .openOn(mymap);
+      }
+
+      mymap.on("click", onMapClick);
 
       L.control
         .scale({
@@ -403,23 +445,24 @@
         })
         .addTo(mymap);
 
-        var baseMaps = {
-    "Label Map": marsLabeledMapLayer,
-    "Shaded Map": marsShaded,
-    "Color Coded MOLA Elevation Map": marsMOLA,
-    "Viking Map": marsVikingLayer,
-    "Greyscale Map": marsGrayscale,
-    "Hillshade Map": marsHillshade
-    };
+      var baseMaps = {
+        "Label Map": marsLabeledMapLayer,
+        "Shaded Map": marsShaded,
+        "Color Coded MOLA Elevation Map": marsMOLA,
+        "Viking Map": marsVikingLayer,
+        "Greyscale Map": marsGrayscale,
+        "Hillshade Map": marsHillshade,
+      };
 
-    var overlayMaps = {
-    "Go Zones": goZoneLayer,
-    "No Go Zones": noGoLayer,
-    "Markers": markerLayer
-    };
+      var overlayMaps = {
+        "Go Zones": goZoneLayer,
+        "No Go Zones": noGoLayer,
+        "Markers": markerLayer,
+        "Actual Waypoints": actualWaypoints,
+        "Planned Waypoints": plannedWaypoints,
+      };
 
-    L.control.layers(baseMaps, overlayMaps).addTo(mymap);
-
+      L.control.layers(baseMaps, overlayMaps).addTo(mymap);
     </script>
   </body>
 </html>

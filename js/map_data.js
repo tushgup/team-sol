@@ -73,30 +73,6 @@ var GoZones = {
   ],
 };
 
-// var GoZones = {
-//     type: "FeatureCollection",
-//     features: [
-//       {
-//         id: "go-zone-1",
-//         properties: { name: "Go Zone 1", radius: 50 },
-//         type: "Feature",
-//         geometry: { type: "Point", coordinates: [-33.515471, -168.419847] },
-//       },
-//       {
-//         id: "go-zone-2",
-//         properties: { name: "Go Zone 2", radius: 100 },
-//         type: "Feature",
-//         geometry: { type: "Point", coordinates: [-6.091605, -129.506836] },
-//       },
-//       {
-//         id: "go-zone-3",
-//         properties: { name: "Go Zone 3", radius: 75 },
-//         type: "Feature",
-//         geometry: { type: "Point", coordinates: [-9.269194, -119.838867] },
-//       },
-//     ],
-//   };
-
 var NoGoZones = {
   type: "FeatureCollection",
   features: [
@@ -133,7 +109,7 @@ var NoGoZones = {
   ],
 };
 
-var actualWaypoints = {
+var plannedWaypoints = {
   type: "FeatureCollection",
   features: [
     {
@@ -152,8 +128,210 @@ var actualWaypoints = {
       },
       id: 1,
     },
+    {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [-126.442848, -7.768771],
+            [-122.984855, -8.585086],
+          ],
+        },
+        properties: {
+          popupContent:
+            "This is a free bus line that will take you across downtown.",
+          underConstruction: false,
+        },
+        id: 2,
+      },
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [-122.225459,-11.739157],
+            [-132.454826,-20.014266],
+          ],
+        },
+        properties: {
+          popupContent:
+            "This is a free bus line that will take you across downtown.",
+          underConstruction: false,
+        },
+        id: 3,
+      },
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [-132.454826,-20.014266],
+            [-138.050121, -21.327812]
+          ],
+        },
+        properties: {
+          popupContent:
+            "This is a free bus line that will take you across downtown.",
+          underConstruction: false,
+        },
+        id: 4,
+      },
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+              [-141.814339,-18.727417],
+              [-142.878465, -14.089349],
+            ],
+        },
+        properties: {
+          popupContent:
+            "This is a free bus line that will take you across downtown.",
+          underConstruction: false,
+        },
+        id: 5,
+      },
   ],
 };
+
+var actualWaypoints = {
+    type: "FeatureCollection",
+    features: [
+      {
+        type: "Feature",
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [-142.878465, -14.089349],
+            [-132.954745,-7.258252],
+          ],
+        },
+        properties: {
+          popupContent:
+            "This is a free bus line that will take you across downtown.",
+          underConstruction: false,
+        },
+        id: 1,
+      },
+      {
+          type: "Feature",
+          geometry: {
+            type: "LineString",
+            coordinates: [
+              [-126.442848, -7.768771],
+              [-122.984855, -8.585086],
+            ],
+          },
+          properties: {
+            popupContent:
+              "This is a free bus line that will take you across downtown.",
+            underConstruction: false,
+          },
+          id: 2,
+        },
+        {
+          type: "Feature",
+          geometry: {
+            type: "LineString",
+            coordinates: [
+              [-122.225459,-11.739157],
+              [-132.454826,-20.014266],
+            ],
+          },
+          properties: {
+            popupContent:
+              "This is a free bus line that will take you across downtown.",
+            underConstruction: false,
+          },
+          id: 3,
+        },
+        {
+          type: "Feature",
+          geometry: {
+            type: "LineString",
+            coordinates: [
+              [-132.454826,-20.014266],
+              [-138.050121, -21.327812]
+            ],
+          },
+          properties: {
+            popupContent:
+              "This is a free bus line that will take you across downtown.",
+            underConstruction: false,
+          },
+          id: 4,
+        },
+        {
+          type: "Feature",
+          geometry: {
+            type: "LineString",
+            coordinates: [
+                [-141.814339,-18.727417],
+                [-142.878465, -14.089349],
+              ],
+          },
+          properties: {
+            popupContent:
+              "This is a free bus line that will take you across downtown.",
+            underConstruction: false,
+          },
+          id: 5,
+        },
+        {
+            type: "Feature",
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [-132.954745,-7.258252],
+                [-130.62485398, -5.76933376],
+                ],
+            },
+            properties: {
+            },
+            id: 6,
+          },
+          {
+            type: "Feature",
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [-130.62485398, -5.76933376],
+                [-129.626578, -7.930807]
+                ],
+            },
+            properties: {
+            },
+            id: 7,
+          },
+          {
+            type: "Feature",
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [-129.626578, -7.930807],
+                [-126.770133, -6.165219]
+                ],
+            },
+            properties: {
+            },
+            id: 8,
+          },
+          {
+            type: "Feature",
+            geometry: {
+              type: "LineString",
+              coordinates: [
+                [-126.770133, -6.165219],
+                [-126.442847, -7.768764]
+                ],
+            },
+            properties: {
+            },
+            id: 9,
+          },
+    ],
+  };
 
 var markerLabels = {
   type: "FeatureCollection",
@@ -180,13 +358,13 @@ var markerLabels = {
       id: "1fb75535-efb7-4cbe-9a31-a6e59b24d936",
       properties: { type: "site" },
       type: "Feature",
-      geometry: { type: "Point", coordinates: [-129.95895565, -6.69544957] },
+      geometry: { type: "Point", coordinates: [-129.626578, -7.930807] },
     },
     {
       id: "b093ab86-278e-4cb8-8f55-42fa27f746a4",
       properties: { type: "site" },
       type: "Feature",
-      geometry: { type: "Point", coordinates: [-129.04037672, -5.5442679] },
+      geometry: { type: "Point", coordinates: [-126.770133, -6.165219] },
     },
     {
         id: "b093ab86-278e-4cb8-8f55-42fa27f7dfsfsdf",

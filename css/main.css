@@ -13,8 +13,8 @@ body {
   color: #fff;
   font-family: "Rubik", sans-serif;
 }
-
-/* .mainContent {
+/* 
+.mainContent {
   height: 100%;
   width: 100%;
 }
@@ -24,7 +24,7 @@ body {
 } */
 
 #mapid {
-  height: 90vh;
+  height: 93vh;
   width: 100%;
 }
 
@@ -44,6 +44,12 @@ body {
   color: #868686;
   background-color: #201f1e;
   width: 33%;
+}
+
+.nestedTabTextStyle {
+  display: flex; 
+  align-items: center;
+  justify-content: center;
 }
 
 #nav-tabContent {
