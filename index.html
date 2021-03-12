@@ -400,6 +400,11 @@
         mymap.zoomOut();
       }
 
+      function tagLocation(e) {
+        var taggedLocation = L.marker(e.latlng).addTo(mymap);
+        taggedLocation.bindPopup("<p>[" + e.latlng.lng.toPrecision(7) + ", " + e.latlng.lat.toPrecision(7) + "]: </p>", { removable: true, editable: true }).openPopup();
+      }
+
       mymap = L.map("mapid", {
         contextmenu: true,
         contextmenuWidth: 140,
@@ -423,15 +428,24 @@
             icon: "assets/icons/zoom-out.png",
             callback: zoomOut,
           },
+          {
+            text: "Tag Location",
+            icon: "assets/icons/zoom-out.png",
+            callback: tagLocation,
+          },
         ],
       }).setView(evLocation, 5);
 
       L.control.mousePosition({ lngFirst: true }).addTo(mymap);
 
-      var pulsingIcon = L.icon.pulse({ iconSize: [20, 20], color: "#F8E71C", fillColor: "#F8E71C" });
-      var markerPulse = L.marker([-7.258252,-132.954745], { icon: pulsingIcon }).addTo(
-        mymap
-      );
+      var pulsingIcon = L.icon.pulse({
+        iconSize: [20, 20],
+        color: "#F8E71C",
+        fillColor: "#F8E71C",
+      });
+      var markerPulse = L.marker([-7.258252, -132.954745], {
+        icon: pulsingIcon,
+      }).addTo(mymap);
 
       // add leaflet-geoman controls with some options to the map
       mymap.pm.addControls({
@@ -506,6 +520,7 @@
       });
 
       function onEachFeature(feature, layer) {
+        // console.log({ feature, layer });
         var popupContent = "<p>[" + feature.geometry.coordinates + "]:</p>";
 
         if (feature.properties && feature.properties.popupContent) {
@@ -585,11 +600,11 @@
         }
       ).addTo(mymap);
 
-      function onMapClick(e) {
-        console.log("You clicked the map at " + e.latlng.toString());
-      }
+      // function onMapClick(e) {
+      //   console.log("You clicked the map at " + e.latlng.toString());
+      // }
 
-      mymap.on("click", onMapClick);
+      // mymap.on("click", onMapClick);
 
       L.control
         .scale({
@@ -617,6 +632,49 @@
       };
 
       L.control.layers(baseMaps, overlayMaps).addTo(mymap);
+
+      // mymap.pm.setGlobalOptions({
+      //   measurements: { measurement: true, displayFormat: "metric" },
+      // });
+
+      // Geoman Event Handling
+      // listen to vertexes being added to currently drawn layer (called workingLayer)
+      // mymap.on("pm:drawstart", ({ workingLayer }) => {
+        // workingLayer.on("pm:snap", (e) => {
+          // console.log(e);
+          // if (e.shape === "Marker") {
+            // e.marker.bindPopup('<p>Hello world!<br />This is a nice popup.</p>').openPopup();
+
+            // e.marker.bindPopup('<p>Hello world!<br />This is a nice popup.</p>', { removable: true, editable: true });
+
+            // var popup = L.popup()
+            // .setLatLng([ e.snapLatLng.lat,e.snapLatLng.lng])
+            // .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+            // .openOn(mymap);            
+            
+            // let feature = {
+            //   id: (Math.random() * Math.floor(99999999)).toString(),
+            //   properties: { type: "taggedLocation" },
+            //   type: "Feature",
+            //   geometry: {
+            //     type: "Point",
+            //     coordinates: [e.snapLatLng.lat,e.snapLatLng.lng],
+            //   },
+            // };
+
+            // var popupContent = "<p>[" + feature.geometry.coordinates + "]:</p>";
+
+            // if (feature.properties && feature.properties.popupContent) {
+            //   popupContent += feature.properties.popupContent;
+            // }
+
+            // e.layer.bindPopup(popupContent, {
+            //   removable: true,
+            //   editable: true,
+            // });
+      //     }
+      //   });
+      // });
     </script>
   </body>
 </html>
