@@ -11,9 +11,23 @@
 
     <title>Team Sol Explorers x NASA Prototype</title>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="./apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./favicon-16x16.png"
+    />
     <link rel="manifest" href="./site.webmanifest" />
     <meta name="msapplication-TileColor" content="#2b5797" />
     <meta name="theme-color" content="#262626" />
@@ -36,6 +50,7 @@
     <link rel="stylesheet" href="css/draw-on-map.css" />
     <link rel="stylesheet" href="css/L.Control.MousePosition.css" />
     <link rel="stylesheet" href="css/leaflet.contextmenu.min.css" />
+    <link rel="stylesheet" href="css/L.Icon.Pulse.css" />
 
     <script src="https://unpkg.com/phosphor-icons"></script>
 
@@ -54,8 +69,17 @@
     <div class="Nav">
       <nav class="navbar navbar-dark" style="background-color: #262626">
         <div class="container-fluid p-2">
-          <div class="navbar-brand" style="display: flex; flex-direction: row; align-items: center;">
-            <img class="mx-2" src="assets/icons/team-sol-logo.svg" height="18" width="18">           <p class="my-0 mx-1">SOL 125</p>
+          <div
+            class="navbar-brand"
+            style="display: flex; flex-direction: row; align-items: center"
+          >
+            <img
+              class="mx-2"
+              src="assets/icons/team-sol-logo.svg"
+              height="18"
+              width="18"
+            />
+            <p class="my-0 mx-1">SOL 125</p>
           </div>
           <p class="my-0"><span id="date-time"></span></p>
           <p class="my-0 mx-4">EVA #3231</p>
@@ -323,6 +347,7 @@
     <script src="js/draw-on-map.min.js"></script>
     <script src="js/L.Control.MousePosition.js"></script>
     <script src="js/leaflet.contextmenu.min.js"></script>
+    <script src="js/L.Icon.Pulse.js"></script>
     <script src="js/map_data.js"></script>
 
     <!-- Menu Toggle Script -->
@@ -402,6 +427,11 @@
       }).setView(evLocation, 5);
 
       L.control.mousePosition({ lngFirst: true }).addTo(mymap);
+
+      var pulsingIcon = L.icon.pulse({ iconSize: [20, 20], color: "#F8E71C", fillColor: "#F8E71C" });
+      var markerPulse = L.marker([-7.258252,-132.954745], { icon: pulsingIcon }).addTo(
+        mymap
+      );
 
       // add leaflet-geoman controls with some options to the map
       mymap.pm.addControls({

@@ -348,12 +348,12 @@ var markerLabels = {
       type: "Feature",
       geometry: { type: "Point", coordinates: [-142.878465, -14.089349] },
     },
-    {
-      id: "044c31aa-9d42-447a-973f-a22cdc9032c9",
-      properties: { type: "ev" },
-      type: "Feature",
-      geometry: { type: "Point", coordinates: [-132.954745,-7.258252] },
-    },
+    // {
+    //   id: "044c31aa-9d42-447a-973f-a22cdc9032c9",
+    //   properties: { type: "ev" },
+    //   type: "Feature",
+    //   geometry: { type: "Point", coordinates: [-132.954745,-7.258252] },
+    // },
     {
       id: "1fb75535-efb7-4cbe-9a31-a6e59b24d936",
       properties: { type: "site" },
