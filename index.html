@@ -39,6 +39,10 @@
       integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
 
     <link
       rel="stylesheet"
@@ -185,28 +189,53 @@
                     aria-labelledby="flush-headingOne"
                     data-bs-parent="#accordionFlushExample"
                   >
-                    <div class="accordion-body">
-                      <div class="form-check">
+                    <div
+                      class="accordion-body"
+                      id="sortable"
+                      data-sortable-id="0"
+                      aria-dropeffect="move"
+                    >
+                      <div
+                        class="form-check my-2"
+                        data-id="13"
+                        data-item-sortable-id="0"
+                        draggable="true"
+                        role="option"
+                        aria-grabbed="false"
+                      >
                         <input
                           class="form-check-input"
                           type="checkbox"
                           value=""
                           id="flexCheckDefault"
                         />
-                        <label class="form-check-label" for="flexCheckDefault">
-                          Default checkbox
-                        </label>
+                        <span
+                          class="editableStep"
+                          style="border-bottom: 1px dashed lightgray"
+                        >
+                          Wear the gloves.
+                        </span>
                       </div>
-                      <div class="form-check">
+                      <div
+                        class="form-check my-2"
+                        data-id="9"
+                        data-item-sortable-id="0"
+                        draggable="true"
+                        role="option"
+                        aria-grabbed="false"
+                      >
                         <input
                           class="form-check-input"
                           type="checkbox"
                           value=""
                           id="flexCheckChecked"
                         />
-                        <label class="form-check-label" for="flexCheckChecked">
-                          Checked checkbox
-                        </label>
+                        <span
+                          class="editableStep"
+                          style="border-bottom: 1px dashed lightgray"
+                        >
+                          Take out the tools.
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -332,7 +361,8 @@
     </div>
 
     <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
@@ -348,6 +378,7 @@
     <script src="js/L.Control.MousePosition.js"></script>
     <script src="js/leaflet.contextmenu.min.js"></script>
     <script src="js/L.Icon.Pulse.js"></script>
+    <script src="js/domEdit.js"></script>
     <script src="js/map_data.js"></script>
 
     <!-- Menu Toggle Script -->
@@ -379,6 +410,29 @@
       }
 
       setInterval(myDateFunction, 1000);
+      // Editable Steps
+
+      $(".editableStep").domEdit({
+        editorClass: "editableStep",
+        onSetEditorStyle: function ($editor, $editingElement) {
+          $editor.css("color", "#fff");
+          $editor.css("background-color", "#525252");
+          $editor.css("border-style", "dotted");
+          $editor.css("border-bottom-width", "1px");
+          $editor.css("border-color", "#B1B1B1");
+          $editor.css("width", "300px");
+          $editor.css("height", "50px");
+          $editor.css("outline", "none");
+        },
+      });
+
+      // Drag and Drop Steps
+      $(function () {
+        $("#sortable").sortable();
+        $("#sortable").disableSelection();
+      });
+
+      // Map JS
 
       var mymap,
         evLocation = [-12.802112, -141.679669];
@@ -398,7 +452,16 @@
 
       function tagLocation(e) {
         var taggedLocation = L.marker(e.latlng).addTo(mymap);
-        taggedLocation.bindPopup("<p>[" + e.latlng.lng.toPrecision(7) + ", " + e.latlng.lat.toPrecision(7) + "]: </p>", { removable: true, editable: true }).openPopup();
+        taggedLocation
+          .bindPopup(
+            "<p>[" +
+              e.latlng.lng.toPrecision(7) +
+              ", " +
+              e.latlng.lat.toPrecision(7) +
+              "]: </p>",
+            { removable: true, editable: true }
+          )
+          .openPopup();
       }
 
       mymap = L.map("mapid", {
@@ -632,38 +695,38 @@
       // Geoman Event Handling
       // listen to vertexes being added to currently drawn layer (called workingLayer)
       // mymap.on("pm:drawstart", ({ workingLayer }) => {
-        // workingLayer.on("pm:snap", (e) => {
-          // console.log(e);
-          // if (e.shape === "Marker") {
-            // e.marker.bindPopup('<p>Hello world!<br />This is a nice popup.</p>').openPopup();
+      // workingLayer.on("pm:snap", (e) => {
+      // console.log(e);
+      // if (e.shape === "Marker") {
+      // e.marker.bindPopup('<p>Hello world!<br />This is a nice popup.</p>').openPopup();
 
-            // e.marker.bindPopup('<p>Hello world!<br />This is a nice popup.</p>', { removable: true, editable: true });
+      // e.marker.bindPopup('<p>Hello world!<br />This is a nice popup.</p>', { removable: true, editable: true });
 
-            // var popup = L.popup()
-            // .setLatLng([ e.snapLatLng.lat,e.snapLatLng.lng])
-            // .setContent('<p>Hello world!<br />This is a nice popup.</p>')
-            // .openOn(mymap);            
-            
-            // let feature = {
-            //   id: (Math.random() * Math.floor(99999999)).toString(),
-            //   properties: { type: "taggedLocation" },
-            //   type: "Feature",
-            //   geometry: {
-            //     type: "Point",
-            //     coordinates: [e.snapLatLng.lat,e.snapLatLng.lng],
-            //   },
-            // };
+      // var popup = L.popup()
+      // .setLatLng([ e.snapLatLng.lat,e.snapLatLng.lng])
+      // .setContent('<p>Hello world!<br />This is a nice popup.</p>')
+      // .openOn(mymap);
 
-            // var popupContent = "<p>[" + feature.geometry.coordinates + "]:</p>";
+      // let feature = {
+      //   id: (Math.random() * Math.floor(99999999)).toString(),
+      //   properties: { type: "taggedLocation" },
+      //   type: "Feature",
+      //   geometry: {
+      //     type: "Point",
+      //     coordinates: [e.snapLatLng.lat,e.snapLatLng.lng],
+      //   },
+      // };
 
-            // if (feature.properties && feature.properties.popupContent) {
-            //   popupContent += feature.properties.popupContent;
-            // }
+      // var popupContent = "<p>[" + feature.geometry.coordinates + "]:</p>";
 
-            // e.layer.bindPopup(popupContent, {
-            //   removable: true,
-            //   editable: true,
-            // });
+      // if (feature.properties && feature.properties.popupContent) {
+      //   popupContent += feature.properties.popupContent;
+      // }
+
+      // e.layer.bindPopup(popupContent, {
+      //   removable: true,
+      //   editable: true,
+      // });
       //     }
       //   });
       // });
