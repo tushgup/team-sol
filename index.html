@@ -384,10 +384,6 @@
         evLocation = [-12.802112, -141.679669];
       // var mymap = L.map("mapid").setView(evLocation, 5);
 
-      function showCoordinates(e) {
-        alert(e.latlng);
-      }
-
       function centerMap(e) {
         mymap.panTo(e.latlng);
       }
@@ -409,10 +405,6 @@
         contextmenu: true,
         contextmenuWidth: 140,
         contextmenuItems: [
-          {
-            text: "Show coordinates",
-            callback: showCoordinates,
-          },
           {
             text: "Center map here",
             callback: centerMap,
@@ -448,9 +440,9 @@
       }).addTo(mymap);
 
       // add leaflet-geoman controls with some options to the map
-      mymap.pm.addControls({
-        position: "topleft",
-      });
+      // mymap.pm.addControls({
+      //   position: "topleft",
+      // });
 
       var marsLabeledMapLayer = L.tileLayer(
         // "https://mars.nasa.gov/mmgis-maps/M20/Layers/Jezero_Balanced_Visible_HiRISE_HRSCcolor_IHS_pansharp/{z}/{x}/{y}.png",
