@@ -939,12 +939,6 @@
       });
 
       mymap.on("pm:create", (e) => {
-        console.log(e);
-        // if (e.shape === "Marker") {
-        //   e.marker
-        //     .bindPopup("<p>Hello world!<br />This is a nice popup.</p>")
-        //     .openPopup();
-        // }
         e.marker
           .bindPopup(
             "<p>[" +
@@ -956,6 +950,10 @@
           )
           .openPopup();
       });
+
+      window.addEventListener( 'beforeunload', function(ev) { 
+    return ev.returnValue = 'Are you sure you want to refresh this page?';
+})
 
       // mymap.pm.setGlobalOptions({
       //   measurements: { measurement: true, displayFormat: "metric" },
