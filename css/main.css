@@ -1,30 +1,50 @@
-/* body {
-  padding: 0;
-  margin: 0;
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-html, body {
-  height: 100%;
-  width: 100vw;
-} */
 
-body {
-  /* overflow: hidden; */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+html,
+body,
+#container {
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
   background-color: #262626;
   color: #fff;
   font-family: "Rubik", sans-serif;
 }
-/* 
-.mainContent {
-  height: 100%;
-  width: 100%;
+
+.container {
+  /* height of .navbar, customize with @navbar-height variable */
+  padding-top: 25px;
+}
+.navbar {
+  min-height: 25px;
 }
 
-.mapContainer {
-  border: 2px solid red;
-} */
-
+#sidebar {
+  float: right;
+  height: 100%;
+  max-width: 100%;
+  width: 450px;
+}
 #mapid {
-  height: 93vh;
+  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); */
+  height: 100%;
+  width: auto;
+}
+.sidebar-wrapper {
+  height: 100%;
+  position: relative;
   width: 100%;
 }
 
@@ -90,13 +110,6 @@ body {
   justify-content: space-between;
 }
 
-.sidebarContent {
-  display: flex;
-  height: 95vh;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
 .consumables {
   display: flex;
   flex-direction: row;
@@ -133,8 +146,8 @@ body {
 
 .leaflet-touch .leaflet-control-layers,
 .leaflet-touch .leaflet-bar {
-  /* background-color: #262626; */
-  /* color: #fff; */
+   background-color: #262626;
+  color: #fff; 
   border: none;
   background-clip: padding-box;
 }
@@ -186,3 +199,4 @@ a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leafle
   max-height: 50vh;
   overflow-y: auto;
 }
+
