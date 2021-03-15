@@ -647,10 +647,10 @@
       });
 
       // Drag and Drop Steps
-      $(function () {
-        $("#sortable").sortable();
-        $("#sortable").disableSelection();
-      });
+      // $(function () {
+      //   $("#sortable").sortable();
+      //   $("#sortable").disableSelection();
+      // });
 
       // Map JS
 
@@ -837,24 +837,24 @@
         }
       ).addTo(mymap);
 
-      var markerLayers = L.markerClusterGroup({});
+      // var markerLayers = L.markerClusterGroup({});
 
-      var markerLayer = L.geoJSON(
-        { features: [markerLabels] },
-        {
-          onEachFeature: onEachFeature,
-          pointToLayer: function (feature, latlng) {
-            return markerLayers.addLayer(
-              L.marker(latlng, {
-                icon:
-                  feature.properties.type === "ev"
-                    ? yellowCircleMarker
-                    : yellowSquareMarker,
-              })
-            );
-          },
-        }
-      ).addTo(mymap);
+      // var markerLayer = L.geoJSON(
+      //   { features: [markerLabels] },
+      //   {
+      //     onEachFeature: onEachFeature,
+      //     pointToLayer: function (feature, latlng) {
+      //       return markerLayers.addLayer(
+      //         L.marker(latlng, {
+      //           icon:
+      //             feature.properties.type === "ev"
+      //               ? yellowCircleMarker
+      //               : yellowSquareMarker,
+      //         })
+      //       );
+      //     },
+      //   }
+      // ).addTo(mymap);
       // controlLayers.addOverlay(markerLayer, "Markers");
 
       var plannedWaypointLineStyle = {
@@ -913,7 +913,7 @@
       var overlayMaps = {
         "Go Zones": goZoneLayer,
         "No Go Zones": noGoZoneLayer,
-        Markers: markerLayers,
+        // Markers: markerLayers,
         "Actual Waypoints": actualWaypoints,
         "Planned Waypoints": plannedWaypoints,
       };
