@@ -278,58 +278,58 @@ var actualWaypoints = {
           },
           id: 5,
         },
-        {
-            type: "Feature",
-            geometry: {
-              type: "LineString",
-              coordinates: [
-                [-132.954745,-7.258252],
-                [-130.62485398, -5.76933376],
-                ],
-            },
-            properties: {
-            },
-            id: 6,
-          },
-          {
-            type: "Feature",
-            geometry: {
-              type: "LineString",
-              coordinates: [
-                [-130.62485398, -5.76933376],
-                [-129.626578, -7.930807]
-                ],
-            },
-            properties: {
-            },
-            id: 7,
-          },
-          {
-            type: "Feature",
-            geometry: {
-              type: "LineString",
-              coordinates: [
-                [-129.626578, -7.930807],
-                [-126.770133, -6.165219]
-                ],
-            },
-            properties: {
-            },
-            id: 8,
-          },
-          {
-            type: "Feature",
-            geometry: {
-              type: "LineString",
-              coordinates: [
-                [-126.770133, -6.165219],
-                [-126.442847, -7.768764]
-                ],
-            },
-            properties: {
-            },
-            id: 9,
-          },
+        // {
+        //     type: "Feature",
+        //     geometry: {
+        //       type: "LineString",
+        //       coordinates: [
+        //         [-132.954745,-7.258252],
+        //         [-130.62485398, -5.76933376],
+        //         ],
+        //     },
+        //     properties: {
+        //     },
+        //     id: 6,
+        //   },
+          // {
+          //   type: "Feature",
+          //   geometry: {
+          //     type: "LineString",
+          //     coordinates: [
+          //       [-130.62485398, -5.76933376],
+          //       [-129.626578, -7.930807]
+          //       ],
+          //   },
+          //   properties: {
+          //   },
+          //   id: 7,
+          // },
+          // {
+          //   type: "Feature",
+          //   geometry: {
+          //     type: "LineString",
+          //     coordinates: [
+          //       [-129.626578, -7.930807],
+          //       [-126.770133, -6.165219]
+          //       ],
+          //   },
+          //   properties: {
+          //   },
+          //   id: 8,
+          // },
+          // {
+          //   type: "Feature",
+          //   geometry: {
+          //     type: "LineString",
+          //     coordinates: [
+          //       [-126.770133, -6.165219],
+          //       [-126.442847, -7.768764]
+          //       ],
+          //   },
+          //   properties: {
+          //   },
+          //   id: 9,
+          // },
     ],
   };
 
