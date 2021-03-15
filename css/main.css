@@ -162,3 +162,27 @@ a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leafle
   top: 4px;
   right: 8px;
 }
+
+.procedure-step-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.sub-task-list {
+  list-style-type: none;
+}
+
+.sub-task-list > li {
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.sub-task-list > li > span {
+  border-bottom: 1px dashed gray;
+  margin-left: 4px;
+}
+
+#flush-collapseOne {
+  max-height: 50vh;
+  overflow-y: auto;
+}
