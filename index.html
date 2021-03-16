@@ -652,35 +652,22 @@
       }, 1000);
 
       // PET Timer
-      var timer = new easytimer.Timer();
+      var task1Timer = new easytimer.Timer();
 
       $(".startButton").click(function () {
-        console.log("Clicked");
-        timer.start();
-      });
-
-      $(".pauseButton").click(function () {
-        timer.pause();
+        task1Timer.start();
       });
 
       $(".stopButton").click(function () {
-        timer.stop();
+        task1Timer.stop();
       });
 
-      $(".resetButton").click(function () {
-        timer.reset();
+      task1Timer.addEventListener("secondsUpdated", function (e) {
+        $("#task1Timer .task1TimerValues").html(task1Timer.getTimeValues().toString());
       });
 
-      timer.addEventListener("secondsUpdated", function (e) {
-        $("#task1Timer .task1TimerValues").html(timer.getTimeValues().toString());
-      });
-
-      timer.addEventListener("started", function (e) {
-        $("#task1Timer .task1TimerValues").html(timer.getTimeValues().toString());
-      });
-
-      timer.addEventListener("reset", function (e) {
-        $("#chronoExample .values").html(timer.getTimeValues().toString());
+      task1Timer.addEventListener("started", function (e) {
+        $("#task1Timer .task1TimerValues").html(task1Timer.getTimeValues().toString());
       });
 
       // Date Time
