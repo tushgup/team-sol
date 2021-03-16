@@ -714,6 +714,8 @@
       }
 
       mymap = L.map("mapid", {
+        minZoom: 3,
+        maxZoom: 5,
         contextmenu: true,
         contextmenuWidth: 140,
         contextmenuItems: [
@@ -827,22 +829,18 @@
         }
       ).addTo(mymap);
 
+      var noGoZoneStyle = {
+        fillColor: "rgba(231, 24, 24, 0.8)",
+                color: "rgba(231, 24, 24, 1)",
+                weight: 2,
+      };
+
       var noGoZoneLayer = L.markerClusterGroup();
 
       var noGoLayer = L.geoJSON(
-        { features: [NoGoZones] },
+        { features: [NoGoZones2] },
         {
-          // style: NoGoZoneStyle,
-          pointToLayer: function (feature, latlng) {
-            return noGoZoneLayer.addLayer(
-              L.circleMarker(latlng, {
-                radius: feature.properties.radius,
-                fillColor: "rgba(231, 24, 24, 0.8)",
-                color: "rgba(231, 24, 24, 1)",
-                weight: 1,
-              })
-            );
-          },
+          style: noGoZoneStyle,
         }
       ).addTo(mymap);
 
@@ -924,7 +922,7 @@
 
       var overlayMaps = {
         "Go Zones": goZoneLayer,
-        "No Go Zones": noGoZoneLayer,
+        "No Go Zones": noGoLayer,
         // Markers: markerLayers,
         "Actual Waypoints": actualWaypoints,
         "Planned Waypoints": plannedWaypoints,
@@ -932,10 +930,10 @@
 
       L.control.layers(baseMaps, overlayMaps).addTo(mymap);
 
-      mymap.pm.enableDraw("Marker", {
-        markerStyle: {
+      mymap.pm.setGlobalOptions({
+        enableDraw: { markerStyle: {
           icon: yellowSquareMarker,
-        },
+        }},
       });
 
       mymap.on("pm:create", (e) => {
@@ -951,9 +949,28 @@
           .openPopup();
       });
 
-      window.addEventListener( 'beforeunload', function(ev) { 
-    return ev.returnValue = 'Are you sure you want to refresh this page?';
-})
+      window.addEventListener("beforeunload", function (ev) {
+        return (ev.returnValue = "Are you sure you want to refresh this page?");
+      });
+
+      var ZoomViewer = L.Control.extend({
+		onAdd: function(){
+
+			var container= L.DomUtil.create('div');
+			var gauge = L.DomUtil.create('div');
+			container.style.width = '200px';
+			container.style.background = 'rgba(255,255,255,0.5)';
+			container.style.textAlign = 'left';
+			mymap.on('zoomstart zoom zoomend', function(ev){
+				gauge.innerHTML = 'Zoom level: ' + mymap.getZoom();
+			})
+			container.appendChild(gauge);
+
+			return container;
+		}
+	});
+
+	(new ZoomViewer).addTo(mymap);
 
       // mymap.pm.setGlobalOptions({
       //   measurements: { measurement: true, displayFormat: "metric" },
