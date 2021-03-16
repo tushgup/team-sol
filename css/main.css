@@ -205,5 +205,8 @@ a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leafle
 .timerButtonContainer > *
 { 
   width: 40%;
+}
 
+.nav-tabs {
+  border-bottom: none;
 }
