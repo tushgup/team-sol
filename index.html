@@ -720,17 +720,13 @@
         contextmenuWidth: 140,
         contextmenuItems: [
           {
-            text: "Center map here",
-            callback: centerMap,
-          },
-          {
-            text: "Move EV Marker here",
+            text: "Move EV Marker",
+            icon: "assets/icons/navigation-arrow.png",
             callback: handleEVMarkerMove,
           },
-          "-",
           {
             text: "Tag Location",
-            icon: "assets/icons/zoom-out.png",
+            icon: "assets/icons/note.png",
             callback: tagLocation,
           },
         ],
@@ -831,8 +827,8 @@
 
       var noGoZoneStyle = {
         fillColor: "rgba(231, 24, 24, 0.8)",
-                color: "rgba(231, 24, 24, 1)",
-                weight: 2,
+        color: "rgba(231, 24, 24, 1)",
+        weight: 2,
       };
 
       var noGoZoneLayer = L.markerClusterGroup();
@@ -897,11 +893,11 @@
         });
       }
 
-      function onMapClick(e) {
-        console.log(e.latlng.toString());
-      }
+      // function onMapClick(e) {
+      //   console.log(e.latlng.toString());
+      // }
 
-      mymap.on("click", onMapClick);
+      // mymap.on("click", onMapClick);
 
       L.control
         .scale({
@@ -931,9 +927,11 @@
       L.control.layers(baseMaps, overlayMaps).addTo(mymap);
 
       mymap.pm.setGlobalOptions({
-        enableDraw: { markerStyle: {
-          icon: yellowSquareMarker,
-        }},
+        enableDraw: {
+          markerStyle: {
+            icon: yellowSquareMarker,
+          },
+        },
       });
 
       mymap.on("pm:create", (e) => {
@@ -954,23 +952,22 @@
       });
 
       var ZoomViewer = L.Control.extend({
-		onAdd: function(){
+        onAdd: function () {
+          var container = L.DomUtil.create("div");
+          var gauge = L.DomUtil.create("div");
+          container.style.width = "200px";
+          container.style.background = "rgba(255,255,255,0.5)";
+          container.style.textAlign = "left";
+          mymap.on("zoomstart zoom zoomend", function (ev) {
+            gauge.innerHTML = "Zoom level: " + mymap.getZoom();
+          });
+          container.appendChild(gauge);
 
-			var container= L.DomUtil.create('div');
-			var gauge = L.DomUtil.create('div');
-			container.style.width = '200px';
-			container.style.background = 'rgba(255,255,255,0.5)';
-			container.style.textAlign = 'left';
-			mymap.on('zoomstart zoom zoomend', function(ev){
-				gauge.innerHTML = 'Zoom level: ' + mymap.getZoom();
-			})
-			container.appendChild(gauge);
+          return container;
+        },
+      });
 
-			return container;
-		}
-	});
-
-	(new ZoomViewer).addTo(mymap);
+      new ZoomViewer().addTo(mymap);
 
       // mymap.pm.setGlobalOptions({
       //   measurements: { measurement: true, displayFormat: "metric" },
