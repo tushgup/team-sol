@@ -57,6 +57,7 @@
     <link rel="stylesheet" href="css/L.Control.MousePosition.css" />
     <link rel="stylesheet" href="css/leaflet.contextmenu.min.css" />
     <link rel="stylesheet" href="css/L.Icon.Pulse.css" />
+    <link rel="stylesheet" href="css/L.Icon.FontAwesome.css" />
 
     <script src="https://unpkg.com/phosphor-icons"></script>
 
@@ -611,6 +612,11 @@
     <script src="js/L.Control.MousePosition.js"></script>
     <script src="js/leaflet.contextmenu.min.js"></script>
     <script src="js/L.Icon.Pulse.js"></script>
+    <script
+      src="https://kit.fontawesome.com/b41bf0afa7.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/L.Icon.FontAwesome.js"></script>
     <script src="js/domEdit.js"></script>
     <script src="js/map_data.js"></script>
 
@@ -699,7 +705,16 @@
 
       function tagLocation(e) {
         var taggedLocation = L.marker(e.latlng, {
-          icon: yellowSquareMarker,
+          icon: L.icon.fontAwesome({
+            iconClasses: "fas fa-sticky-note",
+            // marker/background style
+            markerColor: "#EFA029",
+            markerFillOpacity: 1,
+            // icon style
+            iconColor: "#FFF",
+            iconXOffset: 0,
+            iconYOffset: 0,
+          }),
         }).addTo(mymap);
         taggedLocation
           .bindPopup(
@@ -709,6 +724,31 @@
               e.latlng.lat.toPrecision(7) +
               "]: </p>",
             { removable: true, editable: true }
+          )
+          .openPopup();
+      }
+
+      function tagPhoto(e) {
+        var taggedPhoto = L.marker(e.latlng, {
+          icon: L.icon.fontAwesome({
+            iconClasses: "fas fa-image",
+            // marker/background style
+            markerColor: "#00a9ce",
+            markerFillOpacity: 1,
+            // icon style
+            iconColor: "#FFF",
+            iconXOffset: -2,
+            iconYOffset: 0,
+          }),
+        }).addTo(mymap);
+        taggedPhoto
+          .bindPopup(
+            "<p>[" +
+              e.latlng.lng.toPrecision(7) +
+              ", " +
+              e.latlng.lat.toPrecision(7) +
+              "]: </p>",
+            { removable: true }
           )
           .openPopup();
       }
@@ -728,6 +768,11 @@
             text: "Tag Location",
             icon: "assets/icons/note.png",
             callback: tagLocation,
+          },
+          {
+            text: "Tag Photo",
+            icon: "assets/icons/photo.png",
+            callback: tagPhoto,
           },
         ],
       }).setView(evLocation, 5);
@@ -969,9 +1014,9 @@
 
       new ZoomViewer().addTo(mymap);
 
-      // mymap.pm.setGlobalOptions({
-      //   measurements: { measurement: true, displayFormat: "metric" },
-      // });
+      mymap.pm.setGlobalOptions({
+        measurements: { measurement: true, displayFormat: "metric" },
+      });
 
       // Geoman Event Handling
       // listen to vertexes being added to currently drawn layer (called workingLayer)
