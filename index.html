@@ -53,6 +53,7 @@
     <link rel="stylesheet" href="css/MarkerCluster.css" />
     <link rel="stylesheet" href="css/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="css/popupMod.css" />
+    <link rel="stylesheet" href="css/easytimer.min.css" />
     <link rel="stylesheet" href="css/draw-on-map.css" />
     <link rel="stylesheet" href="css/L.Control.MousePosition.css" />
     <link rel="stylesheet" href="css/leaflet.contextmenu.min.css" />
@@ -179,6 +180,11 @@
                           >
                             Zone A (Sites 1-3)
                           </p>
+
+                          <div id="task1Timer" class="timerHeader">
+                            <p class="my-0">PET Timer:                             <span class="task1TimerValues">00:00:00</span>
+                            </p>
+                          </div>
                         </div>
                         <span class="nestedTabTextStyle mx-2">
                           <i class="ph-timer mx-2"></i> 30 min
@@ -198,6 +204,10 @@
                       data-sortable-id="0"
                       aria-dropeffect="move"
                     >
+                    <div class="timerButtonContainer">
+                      <button type="button" class="btn btn-light startButton">Start</button>
+                      <button type="button" class="btn btn-success stopButton">End</button>
+                    </div>
                       <ul class="procedure-step-list">
                         <li
                           class="my-2"
@@ -617,6 +627,7 @@
       crossorigin="anonymous"
     ></script>
     <script src="js/L.Icon.FontAwesome.js"></script>
+    <script src="js/easytimer.min.js"></script>
     <script src="js/domEdit.js"></script>
     <script src="js/map_data.js"></script>
 
@@ -640,6 +651,39 @@
         }
       }, 1000);
 
+      // PET Timer
+      var timer = new easytimer.Timer();
+
+      $(".startButton").click(function () {
+        console.log("Clicked");
+        timer.start();
+      });
+
+      $(".pauseButton").click(function () {
+        timer.pause();
+      });
+
+      $(".stopButton").click(function () {
+        timer.stop();
+      });
+
+      $(".resetButton").click(function () {
+        timer.reset();
+      });
+
+      timer.addEventListener("secondsUpdated", function (e) {
+        $("#task1Timer .task1TimerValues").html(timer.getTimeValues().toString());
+      });
+
+      timer.addEventListener("started", function (e) {
+        $("#task1Timer .task1TimerValues").html(timer.getTimeValues().toString());
+      });
+
+      timer.addEventListener("reset", function (e) {
+        $("#chronoExample .values").html(timer.getTimeValues().toString());
+      });
+
+      // Date Time
       const dateDiv = document.getElementById("date-time");
 
       function myDateFunction() {
@@ -651,19 +695,19 @@
       setInterval(myDateFunction, 1000);
       // Editable Steps
 
-      $(".editableStep").domEdit({
-        editorClass: "editableStep",
-        onSetEditorStyle: function ($editor, $editingElement) {
-          $editor.css("color", "#fff");
-          $editor.css("background-color", "#525252");
-          $editor.css("border-style", "dotted");
-          $editor.css("border-bottom-width", "1px");
-          $editor.css("border-color", "#B1B1B1");
-          $editor.css("width", "300px");
-          $editor.css("height", "50px");
-          $editor.css("outline", "none");
-        },
-      });
+      // $(".editableStep").domEdit({
+      //   editorClass: "editableStep",
+      //   onSetEditorStyle: function ($editor, $editingElement) {
+      //     $editor.css("color", "#fff");
+      //     $editor.css("background-color", "#525252");
+      //     $editor.css("border-style", "dotted");
+      //     $editor.css("border-bottom-width", "1px");
+      //     $editor.css("border-color", "#B1B1B1");
+      //     $editor.css("width", "300px");
+      //     $editor.css("height", "50px");
+      //     $editor.css("outline", "none");
+      //   },
+      // });
 
       // Drag and Drop Steps
       // $(function () {
@@ -857,6 +901,13 @@
         layer.bindPopup(popupContent, { removable: true, editable: true });
       }
 
+      function onEachZoneFeature(feature, layer) {
+        // console.log({ feature, layer });
+        var popupContent = "<p>" + feature.properties.name + "</p>";
+
+        layer.bindPopup(popupContent);
+      }
+
       var goZoneStyle = {
         // fillColor: 'rgba(49, 177, 77, 1)',
         color: "rgba(49, 177, 77, 1)",
@@ -867,6 +918,7 @@
         { features: [GoZones] },
         {
           style: goZoneStyle,
+          onEachFeature: onEachZoneFeature,
         }
       ).addTo(mymap);
 

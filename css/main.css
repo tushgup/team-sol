@@ -182,7 +182,28 @@ a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leafle
   margin-left: 4px;
 }
 
-#flush-collapseOne {
+.procedure-step-list {
+  margin-top: 8px;
   max-height: 50vh;
   overflow-y: auto;
+}
+
+.timerHeader {
+  display: flex;
+  flex-direction: row;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.timerButtonContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  align-content: center;
+}
+
+.timerButtonContainer > *
+{ 
+  width: 40%;
+
 }
