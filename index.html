@@ -523,7 +523,7 @@
                           role="option"
                           aria-grabbed="false"
                         >
-                          <input type="checkbox" />
+                          <input type="checkbox" name="task2Arrival" />
                           <span class="editableStep">
                             2.1. Confirm zone location upon arrival.
                           </span>
@@ -550,7 +550,7 @@
                           role="option"
                           aria-grabbed="false"
                         >
-                          <input type="checkbox" />
+                          <input type="checkbox" name="task2Site1" />
                           <span class="editableStep"> 2.3. Photo Site 1 </span>
                           <ul class="sub-task-list">
                             <li class="my-2">
@@ -591,7 +591,7 @@
                           role="option"
                           aria-grabbed="false"
                         >
-                          <input type="checkbox" />
+                          <input type="checkbox" name="task2Site2" />
                           <span class="editableStep"> 2.4. Photo Site 2 </span>
                           <ul class="sub-task-list">
                             <li class="my-2">
@@ -632,7 +632,7 @@
                           role="option"
                           aria-grabbed="false"
                         >
-                          <input type="checkbox" />
+                          <input type="checkbox" name="task2Site3" />
                           <span class="editableStep"> 2.5. Photo Site 3 </span>
                           <ul class="sub-task-list">
                             <li class="my-2">
@@ -1202,12 +1202,12 @@
         weight: 2,
       };
 
-      var actualWaypoints = L.geoJSON(
-        { features: [actualWaypoints] },
-        {
-          style: actualWaypointLineStyle,
-        }
-      ).addTo(mymap);
+      // var actualWaypoints = L.geoJSON(
+      //   { features: [actualWaypoints] },
+      //   {
+      //     style: actualWaypointLineStyle,
+      //   }
+      // ).addTo(mymap);
 
       function handleEVMarkerMove(latlng) {
         markerPulse.slideTo(latlng, {
@@ -1244,7 +1244,7 @@
         "Go Zones": goZoneLayer,
         "No Go Zones": noGoLayer,
         // Markers: markerLayers,
-        "Actual Waypoints": actualWaypoints,
+        "Actual Waypoints": polyline,
         "Planned Waypoints": plannedWaypoints,
       };
 
@@ -1297,10 +1297,26 @@
         measurements: { measurement: true, displayFormat: "metric" },
       });
 
+      // Task 2 New Waypoint
+      var alternateWaypointMarker = L.marker([-8.101552, -114.149182], {
+        icon: yellowSquareMarker,
+      }).addTo(mymap);
+      alternateWaypointMarker
+        .bindPopup(
+          "<div> <p>This is a point of interest that adds an 8 minute deviation.</p> <button class='btn btn-primary' type='button'>Add Waypoint</button></div>",
+          { }
+        );
+
       // Reacting to checkbox events
       var triggerSite1 = document.querySelector("input[name=triggerSite1]");
       var triggerSite2 = document.querySelector("input[name=triggerSite2]");
       var triggerSite3 = document.querySelector("input[name=triggerSite3]");
+      var triggerZone2Arrival = document.querySelector(
+        "input[name=task2Arrival]"
+      );
+      var triggerSite4 = document.querySelector("input[name=task2Site1]");
+      var triggerSite5 = document.querySelector("input[name=task2Site2]");
+      var triggerSite6 = document.querySelector("input[name=task2Site3]");
 
       triggerSite1.addEventListener("change", function () {
         if (this.checked) {
@@ -1317,6 +1333,18 @@
       triggerSite3.addEventListener("change", function () {
         if (this.checked) {
           handleEVMarkerMove([-7.353125, -127.677869]);
+        }
+      });
+
+      triggerZone2Arrival.addEventListener("change", function () {
+        if (this.checked) {
+          handleEVMarkerMove([-8.592472, -122.960228]);
+        }
+      });
+
+      triggerSite4.addEventListener("change", function () {
+        if (this.checked) {
+          handleEVMarkerMove([-8.233568, -121.333947]);
         }
       });
 
