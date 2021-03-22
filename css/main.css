@@ -178,7 +178,7 @@ a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leafle
 }
 
 .sub-task-list > li > span {
-  border-bottom: 1px dashed gray;
+  /* border-bottom: 1px dashed gray; */
   margin-left: 4px;
 }
 
