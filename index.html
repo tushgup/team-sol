@@ -956,8 +956,6 @@
       var mymap,
         evLocation = [-12.802112, -141.679669];
 
-      // var mymap = L.map("mapid").setView(evLocation, 5);
-
       var yellowCircleMarker = L.icon({
         iconUrl: "./assets/icons/YellowCircle.svg",
         iconSize: [32, 32],
@@ -1011,13 +1009,14 @@
         var taggedPhoto = L.marker(e.latlng, {
           icon: blueSquareMarker,
         }).addTo(mymap);
+
         taggedPhoto
           .bindPopup(
-            "<p>[" +
+            "<div> <img src='./assets/photo-tag-1.png' height='150' width='150' style='margin-bottom: 8px' /> <br/> [" +
               e.latlng.lng.toPrecision(7) +
               ", " +
               e.latlng.lat.toPrecision(7) +
-              "]: </p>",
+              "]: </div>",
             { removable: true, editable: true }
           )
           .openPopup();
@@ -1317,7 +1316,7 @@
         icon: yellowSquareMarker,
       }).addTo(mymap);
       alternateWaypointMarker.bindPopup(
-        "<div> <p>This is a point of interest that adds an 8 minute deviation.</p> <button class='btn btn-primary' type='button' onclick='addWaypointToPath()'>Add Waypoint</button></div>",
+        "<div> <p>This site will add 18 minutes to your EVA.</p> <button class='btn btn-primary' type='button' onclick='addWaypointToPath()'>Accept</button></div>",
         {}
       );
 
