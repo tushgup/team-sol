@@ -1059,8 +1059,8 @@
       }).addTo(mymap);
 
       markerPulse.bindTooltip("EV's Location", {
-        offset: [5,0],
-        className: 'tooltipClass'
+        offset: [5, 0],
+        className: "tooltipClass",
       });
 
       // add leaflet-geoman controls with some options to the map
@@ -1142,7 +1142,15 @@
 
       function onEachZoneFeature(feature, layer) {
         // console.log({ feature, layer });
-        var popupContent = "<div style='display: flex; flex-direction: column; justify-content: space-around;'>" + "<h6 style='margin-bottom: 8px'>" + feature.properties.name + "</h6> <span>" + feature.properties.timing + "</span> <span style='color: #31b14d; margin-top: 4px; font-weight: 600'>ETA: " + feature.properties.eta + "</span></div>";
+        var popupContent =
+          "<div style='display: flex; flex-direction: column; justify-content: space-around;'>" +
+          "<h6 style='margin-bottom: 8px'>" +
+          feature.properties.name +
+          "</h6> <span>" +
+          feature.properties.timing +
+          "</span> <span style='color: #31b14d; margin-top: 4px; font-weight: 600'>ETA: " +
+          feature.properties.eta +
+          "</span></div>";
 
         layer.bindPopup(popupContent);
       }
@@ -1198,7 +1206,7 @@
 
       var plannedWaypointLineStyle = {
         color: "#333",
-        dashArray: 4,
+        dashArray: 6,
         weight: 2,
       };
 
@@ -1393,7 +1401,11 @@
               color: "rgba(231, 24, 24, 1)",
               weight: 2,
             }
-          ).addTo(mymap);
+          );
+
+          setTimeout(() => {
+            newNoGoZone.addTo(mymap);
+          }, 7000);
         }
       }
 
