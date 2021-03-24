@@ -150,6 +150,13 @@ body {
   padding: 8px;
 }
 
+.tooltipClass {
+  background-color: #262626;
+  color: #fff;
+  border: none;
+  padding: 8px;
+}
+
 a.leaflet-popup-remove-button, a.leaflet-popup-edit-button, a.leaflet-popup-input-cancel, a.leaflet-popup-input-save {
   color: #ff9900;
 }

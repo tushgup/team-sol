@@ -3,7 +3,7 @@ var GoZones = {
   features: [
     {
       id: "5b1ef35c-c0a8-4bbf-bcce-2ecbb753c4f1",
-      properties: { name: "Zone B", ZoneType: "green" },
+      properties: { name: "Zone B", timing: '10:00 - 11:00', eta: '10:15', ZoneType: "green" },
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -27,7 +27,7 @@ var GoZones = {
     },
     {
       id: "d804631f-b4d2-4c99-aca3-4b44d3e7048b",
-      properties: { name: "Zone C", ZoneType: "green" },
+      properties: { name: "Zone C", timing: '12:30 - 01:30', eta: '12:45', ZoneType: "green" },
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -47,7 +47,7 @@ var GoZones = {
     },
     {
       id: "0e661295-7927-4c11-b274-f3a11efc7d0d",
-      properties: { name: "Zone A", ZoneType: "green" },
+      properties: { name: "Zone A", timing: '09:00 - 09:30', eta: '09:00', ZoneType: "green" },
       type: "Feature",
       geometry: {
         type: "Polygon",

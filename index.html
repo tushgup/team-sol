@@ -1058,6 +1058,11 @@
         icon: pulsingIcon,
       }).addTo(mymap);
 
+      markerPulse.bindTooltip("EV's Location", {
+        offset: [5,0],
+        className: 'tooltipClass'
+      });
+
       // add leaflet-geoman controls with some options to the map
       mymap.pm.addControls({
         position: "topleft",
@@ -1137,7 +1142,7 @@
 
       function onEachZoneFeature(feature, layer) {
         // console.log({ feature, layer });
-        var popupContent = "<p>" + feature.properties.name + "</p>";
+        var popupContent = "<div style='display: flex; flex-direction: column; justify-content: space-around;'>" + "<h6 style='margin-bottom: 8px'>" + feature.properties.name + "</h6> <span>" + feature.properties.timing + "</span> <span style='color: #31b14d; margin-top: 4px; font-weight: 600'>ETA: " + feature.properties.eta + "</span></div>";
 
         layer.bindPopup(popupContent);
       }
@@ -1192,9 +1197,9 @@
       // controlLayers.addOverlay(markerLayer, "Markers");
 
       var plannedWaypointLineStyle = {
-        color: "#A7A7A7",
-        // dashArray: 4,
-        weight: 6,
+        color: "#333",
+        dashArray: 4,
+        weight: 2,
       };
 
       var plannedWaypoints = L.geoJSON(
@@ -1206,8 +1211,8 @@
 
       var actualWaypointLineStyle = {
         color: "white",
-        dashArray: 4,
-        weight: 2,
+        // dashArray: 4,
+        weight: 3,
       };
 
       // var actualWaypoints = L.geoJSON(
@@ -1231,17 +1236,7 @@
 
       mymap.on("click", onMapClick);
 
-      // L.control
-      //   .scale({
-      //     metric: true,
-      //     imperial: true,
-      //     position: "topright",
-      //   })
-      //   .addTo(mymap);
-
-      var graphicScale = L.control
-        .graphicScale({ fill: "fill" })
-        .addTo(mymap);
+      var graphicScale = L.control.graphicScale({ fill: "fill" }).addTo(mymap);
 
       var baseMaps = {
         "Label Map": marsLabeledMapLayer,
@@ -1382,6 +1377,23 @@
       function handleTask2Finish(checkbox) {
         if (checkbox.checked) {
           handleEVMarkerMove([-11.71932, -122.178986]);
+
+          var newNoGoZone = L.polygon(
+            [
+              [-12.92753, -124.927565],
+              [-13.013246, -123.741041],
+              [-14.188753, -123.543288],
+              [-14.806152, -124.444166],
+              [-14.465731, -125.542799],
+              [-13.591042, -125.476881],
+              [-12.92753, -124.927565],
+            ],
+            {
+              fillColor: "rgba(231, 24, 24, 0.8)",
+              color: "rgba(231, 24, 24, 1)",
+              weight: 2,
+            }
+          ).addTo(mymap);
         }
       }
 
