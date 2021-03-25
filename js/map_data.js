@@ -380,7 +380,7 @@ var NoGoZones2 = {
   features: [
     {
       id: "d8e86998-be92-449a-a67c-b257628acc85",
-      properties: { name: "" },
+      properties: { name: "No Go Zone", reason: 'Jagged Rock Formation'},
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -398,7 +398,7 @@ var NoGoZones2 = {
     },
     {
       id: "3b8db375-9f1f-43a7-bae4-33f06d85c6c0",
-      properties: { name: "" },
+      properties: { name: "No Go Zone", reason: 'Bumpy terrain' },
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -417,7 +417,7 @@ var NoGoZones2 = {
     },
     {
       id: "4e3ebd81-72e9-4e7d-8c3a-ce69ec70533b",
-      properties: { name: "" },
+      properties: { name: "No Go Zone", reason: 'Jagged Rock Formation' },
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -436,7 +436,7 @@ var NoGoZones2 = {
     },
     {
       id: "7ab36003-3fc0-4021-bd3d-9533198c8b7e",
-      properties: { name: "" },
+      properties: { name: "No Go Zone", reason: 'Jagged Rock Formation' },
       type: "Feature",
       geometry: {
         type: "Polygon",
@@ -455,7 +455,7 @@ var NoGoZones2 = {
     },
     {
       id: "a9a5445e-65fe-4547-ae1f-985d513b509d",
-      properties: { name: "" },
+      properties: { name: "No Go Zone", reason: 'Jagged Rock Formation' },
       type: "Feature",
       geometry: {
         type: "Polygon",
