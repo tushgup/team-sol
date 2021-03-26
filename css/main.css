@@ -230,3 +230,10 @@ input[type=checkbox] {
 input[type=checkbox]:hover {
   filter: brightness(90%);
 }
+
+.zone-label {
+  background: transparent;
+  color: white;
+  font-size: 14px;
+  width: 100%;
+}

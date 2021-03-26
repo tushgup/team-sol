@@ -1401,10 +1401,12 @@
       //   )
       //   .addTo(mymap);
 
+      
+
       var polyline = L.polyline(latlngs, {
         color: "white",
         // dashArray: 8,
-        weight: 2,
+        weight: 4,
       }).addTo(mymap);
 
       function onEachFeature(feature, layer) {
@@ -1421,16 +1423,16 @@
       function onEachZoneFeature(feature, layer) {
         // console.log({ feature, layer });
         var popupContent =
-          "<div style='display: flex; flex-direction: column; justify-content: space-around;'>" +
-          "<h6 style='margin-bottom: 8px'>" +
+          "<div style='height: 50px; display: flex; flex-direction: column; justify-content: space-around;'>" +
+          "<h6 style='margin-bottom: 8px; font-weight: 600;'>" +
           feature.properties.name +
           "</h6> <span>" +
           feature.properties.timing +
-          "</span> <span style='color: #31b14d; margin-top: 4px; font-weight: 600'>ETA: " +
+          "</span> <span style='color: #31b14d; margin-top: 4px;'>ETA: " +
           feature.properties.eta +
           "</span></div>";
 
-        layer.bindPopup(popupContent);
+        // layer.bindPopup(popupContent);
       }
 
       function onEachNoGoZoneFeature(feature, layer) {
@@ -1701,7 +1703,7 @@
             "<h6 style='margin-bottom: 8px'>" +
             "No Go Zone" +
             "</h6>" +
-            "<span style='color: rgba(231, 24, 24, 1); margin-top: 4px; font-weight: 600'>Jagged Rock Formation" +
+            "<span style='color: rgba(231, 24, 24, 1); margin-top: 4px;'>Dust storm formation spotted" +
             "</span></div>";
 
           setTimeout(() => {
@@ -1712,6 +1714,36 @@
           }, 7000);
         }
       }
+
+      var zoneALabel = L.divIcon({ 
+        iconSize: new L.Point(50, 50), 
+        html: '<span>Zone A</span>',
+        className: 'zone-label'
+      });
+
+      var zoneAMarker = L.marker([-4.828093, -129.455109], {
+        icon: zoneALabel
+      }).addTo(mymap);
+
+      var zoneBLabel = L.divIcon({ 
+        iconSize: new L.Point(50, 50), 
+        html: '<span>Zone B</span>',
+        className: 'zone-label'
+      });
+
+      var zoneBMarker = L.marker([-6.895472, -119.467142], {
+        icon: zoneBLabel
+      }).addTo(mymap);
+
+      var zoneCLabel = L.divIcon({ 
+        iconSize: new L.Point(50, 50), 
+        html: '<span>Zone C</span>',
+        className: 'zone-label'
+      });
+
+      var zoneCMarker = L.marker([-20.591331, -140.484487], {
+        icon: zoneCLabel
+      }).addTo(mymap);
 
       // Geoman Event Handling
       // listen to vertexes being added to currently drawn layer (called workingLayer)
