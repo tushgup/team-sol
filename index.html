@@ -1237,6 +1237,7 @@
       function tagLocation(e) {
         var taggedLocation = L.marker(e.latlng, {
           icon: yellowSquareMarker,
+          setZIndexOffset: 10,
         }).addTo(mymap);
         taggedLocation
           .bindPopup(
@@ -1253,6 +1254,7 @@
       function tagPhoto(e) {
         var taggedPhoto = L.marker(e.latlng, {
           icon: blueSquareMarker,
+          setZIndexOffset: 10,
         }).addTo(mymap);
 
         taggedPhoto
@@ -1270,25 +1272,6 @@
       mymap = L.map("mapid", {
         minZoom: 3,
         maxZoom: 8,
-        contextmenu: true,
-        contextmenuWidth: 140,
-        contextmenuItems: [
-          {
-            text: "Move EV Marker",
-            icon: "assets/icons/navigation-arrow.png",
-            callback: handleEVMarkerMove,
-          },
-          {
-            text: "Tag Location",
-            icon: "assets/icons/note.png",
-            callback: tagLocation,
-          },
-          {
-            text: "Tag Photo",
-            icon: "assets/icons/photo.png",
-            callback: tagPhoto,
-          },
-        ],
       }).setView(evLocation, 5);
 
       L.control.mousePosition({ lngFirst: true }).addTo(mymap);
@@ -1301,6 +1284,26 @@
 
       var markerPulse = L.marker([-7.258252, -132.954745], {
         icon: pulsingIcon,
+        setZIndexOffset: 1000,
+        contextmenu: true,
+        contextmenuWidth: 140,
+        contextmenuItems: [
+          // {
+          //   text: "Move EV Marker",
+          //   icon: "assets/icons/navigation-arrow.png",
+          //   callback: handleEVMarkerMove,
+          // },
+          {
+            text: "Tag Location",
+            icon: "assets/icons/note.png",
+            callback: tagLocation,
+          },
+          {
+            text: "Tag Photo",
+            icon: "assets/icons/photo.png",
+            callback: tagPhoto,
+          },
+        ],
       }).addTo(mymap);
 
       markerPulse.bindTooltip("EV Location", {
