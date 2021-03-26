@@ -43,7 +43,7 @@ body {
 .nav-tabs .nav-link {
   color: #868686;
   background-color: #201f1e;
-  width: 33%;
+  width: 50%;
 }
 
 .nestedTabTextStyle {
@@ -216,4 +216,17 @@ a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leafle
 
 .nav-tabs {
   border-bottom: none;
+}
+
+input[type=checkbox] {
+  transform: scale(1.5);
+  margin-left: 8px;
+  margin-right: 8px;
+  background-color: #ff9900;
+  transition-duration: 0.3s;
+  cursor: pointer;
+}
+
+input[type=checkbox]:hover {
+  filter: brightness(90%);
 }

@@ -124,21 +124,6 @@
               </button>
               <button
                 class="nav-link"
-                id="nav-profile-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-profile"
-                type="button"
-                role="tab"
-                aria-controls="nav-profile"
-                aria-selected="false"
-              >
-                <span class="nestedTabTextStyle">
-                  <i class="ph-wrench mx-2"></i>
-                  Tools
-                </span>
-              </button>
-              <button
-                class="nav-link"
                 id="nav-contact-tab"
                 data-bs-toggle="tab"
                 data-bs-target="#nav-contact"
@@ -208,13 +193,13 @@
                       <div class="timerButtonContainer">
                         <button
                           type="button"
-                          class="btn btn-light startTask1Button"
+                          class="btn btn-success startTask1Button"
                         >
                           Start
                         </button>
                         <button
                           type="button"
-                          class="btn btn-success stopTask1Button"
+                          class="btn btn-light stopTask1Button"
                         >
                           End
                         </button>
@@ -507,13 +492,13 @@
                       <div class="timerButtonContainer">
                         <button
                           type="button"
-                          class="btn btn-light startTask2Button"
+                          class="btn btn-success startTask2Button"
                         >
                           Start
                         </button>
                         <button
                           type="button"
-                          class="btn btn-success stopTask2Button"
+                          class="btn btn-light stopTask2Button"
                         >
                           End
                         </button>
@@ -729,36 +714,266 @@
                       <div class="timerButtonContainer">
                         <button
                           type="button"
-                          class="btn btn-light startTask3Button"
+                          class="btn btn-success startTask3Button"
                         >
                           Start
                         </button>
                         <button
                           type="button"
-                          class="btn btn-success stopTask3Button"
+                          class="btn btn-light stopTask3Button"
                         >
                           End
                         </button>
                       </div>
-                      Placeholder content for this accordion, which is intended
-                      to demonstrate the <code>.accordion-flush</code> class.
-                      This is the third item's accordion body. Nothing more
-                      exciting happening here in terms of content, but just
-                      filling up the space to make it look, at least at first
-                      glance, a bit more representative of how this would look
-                      in a real-world application.
+                      
+                      <ul class="procedure-step-list">
+                        <li
+                          class="my-2"
+                          data-id="1"
+                          data-item-sortable-id="1"
+                          draggable="true"
+                          role="option"
+                          aria-grabbed="false"
+                        >
+                          <input type="checkbox" />
+                          <span class="editableStep">
+                            3.1. Confirm site location upon arrival.
+                          </span>
+                        </li>
+                        <li
+                          class="my-2"
+                          data-id="2"
+                          data-item-sortable-id="2"
+                          draggable="true"
+                          role="option"
+                          aria-grabbed="false"
+                        >
+                          <input type="checkbox" name="triggerSite1" />
+                          <span class="editableStep">
+                            3.2. Collect soil auger, 3 sample bags, soil probe,
+                            soil core sampler, and 3 sampler syringes from the
+                            tool kit.
+                          </span>
+                        </li>
+                        <li
+                          class="my-2"
+                          data-id="3"
+                          data-item-sortable-id="3"
+                          draggable="true"
+                          role="option"
+                          aria-grabbed="false"
+                        >
+                          <input type="checkbox" />
+                          <span class="editableStep"> 3.3. Sample Site 1 </span>
+                          <ul class="sub-task-list">
+                            <li class="my-2">
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.3.1. Travel to sample site 1.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.3.2. Use the soil auger to collect surface
+                                soil and transfer into the sample bag.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.3.3. Stow sample bag.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.3.4. Use the soil probe to remove 6 inches of
+                                soil.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.3.5. Load a sampler syringe into the soil core
+                                sampler.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.3.6. Use the soil core sampler to collect the
+                                sample from the probed hole.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" name="triggerSite2" />
+                              <span class="editableStep">
+                                3.3.7. Remove syringe from sampler and stow.
+                              </span>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="my-2"
+                          data-id="3"
+                          data-item-sortable-id="3"
+                          draggable="true"
+                          role="option"
+                          aria-grabbed="false"
+                        >
+                          <input type="checkbox" />
+                          <span class="editableStep"> 3.4. Sample Site 2 </span>
+                          <ul class="sub-task-list">
+                            <li class="my-2">
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.4.1. Travel to sample site 2.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                1.4.2. Use the soil auger to collect surface
+                                soil and transfer into the sample bag.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.4.3. Stow sample bag.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.4.4. Use the soil probe to remove 12 inches of
+                                soil.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.4.5. Load a sampler syringe into the soil core
+                                sampler.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.4.6. Use the soil core sampler to collect the
+                                sample from the probed hole.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" name="triggerSite3" />
+                              <span class="editableStep">
+                                3.4.7. Remove syringe from sampler and stow.
+                              </span>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="my-2"
+                          data-id="4"
+                          data-item-sortable-id="4"
+                          draggable="true"
+                          role="option"
+                          aria-grabbed="false"
+                        >
+                          <input type="checkbox" />
+                          <span class="editableStep"> 3.5. Sample Site 3 </span>
+                          <ul class="sub-task-list">
+                            <li class="my-2">
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.5.1. Travel to sample site 3.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.5.2. Use the soil auger to collect surface
+                                soil and transfer into the sample bag.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.5.3. Collect 3 basalt rocks approximately 2
+                                inches in diameter and transfer into the sample
+                                bag.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.5.4. Stow sample bag.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.5.5. Use the soil probe to remove 24 inches of
+                                soil.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.5.6. Load a sampler syringe into the soil core
+                                sampler.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.5.7. Use the soil core sampler to collect the
+                                sample from the probed hole.
+                              </span>
+                            </li>
+                            <li>
+                              <input type="checkbox" />
+                              <span class="editableStep">
+                                3.5.8. Remove syringe from sampler and stow.
+                              </span>
+                            </li>
+                          </ul>
+                        </li>
+                        <li
+                          class="my-2"
+                          data-id="5"
+                          data-item-sortable-id="5"
+                          draggable="true"
+                          role="option"
+                          aria-grabbed="false"
+                        >
+                          <input type="checkbox" />
+                          <span class="editableStep">
+                            3.6. Return soil auger, soil probe, and soil core
+                            sampler to the tool kit.
+                          </span>
+                        </li>
+                        <li
+                          class="my-2"
+                          data-id="6"
+                          data-item-sortable-id="6"
+                          draggable="true"
+                          role="option"
+                          aria-grabbed="false"
+                        >
+                          <input type="checkbox" name="task2Arrival" />
+                          <span class="editableStep">
+                            3.7. Place 3 sample bags and 3 sampler syringes into
+                            the collection box.
+                          </span>
+                        </li>
+                      </ul>
+
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="tab-pane fade"
-              id="nav-profile"
-              role="tabpanel"
-              aria-labelledby="nav-profile-tab"
-            >
-              Tools Content
             </div>
             <div
               class="tab-pane fade"
@@ -825,8 +1040,14 @@
         var timeLeft = countDownDate - now;
         var hours = Math.floor(
           (timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-        );
-        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        ).toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        });;
+        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)).toLocaleString("en-US", {
+          minimumIntegerDigits: 2,
+          useGrouping: false,
+        });;
         var seconds = Math.floor(
           (timeLeft % (1000 * 60)) / 1000
         ).toLocaleString("en-US", {
@@ -842,7 +1063,8 @@
       }, 1000);
 
       var timeElapsed = new easytimer.Timer();
-      timeElapsed.start();
+
+      timeElapsed.start({ precision: "seconds", startValues: { minutes: 20 } });
 
       timeElapsed.addEventListener("secondsUpdated", function (e) {
         $("#timeElapsed").html(timeElapsed.getTimeValues().toString());
@@ -979,6 +1201,27 @@
         popupAnchor: [0, -10],
       });
 
+      var blueSquareMarker = L.icon({
+        iconUrl: "./assets/icons/BlueSquareMarker.svg",
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -10],
+      });
+
+      var poiIcon = L.icon({
+        iconUrl: "./assets/icons/POIMarker.svg",
+        iconSize: [32, 32],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -10],
+      });
+
+      var habitatIcon = L.icon({
+        iconUrl: "./assets/icons/habitat.svg",
+        iconSize: [42, 42],
+        iconAnchor: [16, 16],
+        popupAnchor: [0, -10],
+      });
+
       function centerMap(e) {
         mymap.panTo(e.latlng);
       }
@@ -1060,8 +1303,17 @@
         icon: pulsingIcon,
       }).addTo(mymap);
 
-      markerPulse.bindTooltip("EV's Location", {
+      markerPulse.bindTooltip("EV Location", {
         offset: [5, 0],
+        className: "tooltipClass",
+      });
+
+      var habitatMarker = L.marker([-14.089349, -142.878465], {
+        icon: habitatIcon
+      }).addTo(mymap);
+
+      habitatMarker.bindTooltip("IV Habitat", {
+        offset: [30, 0],
         className: "tooltipClass",
       });
 
@@ -1188,7 +1440,7 @@
           "<h6 style='margin-bottom: 8px'>" +
           feature.properties.name +
           "</h6>" +
-          "<span style='color: rgba(231, 24, 24, 1); margin-top: 4px; font-weight: 600'>Reason: " +
+          "<span style='color: rgba(231, 24, 24, 1); margin-top: 4px; font-weight: 600'>" +
           feature.properties.reason +
           "</span></div>";
 
@@ -1355,7 +1607,7 @@
 
       // Task 2 New Waypoint
       var alternateWaypointMarker = L.marker([-8.101552, -114.149182], {
-        icon: yellowSquareMarker,
+        icon: poiIcon,
       }).addTo(mymap);
       alternateWaypointMarker.bindPopup(
         "<div> <p>Point of Interest #5: Potential interesting rock formation</p> <button class='btn btn-primary' type='button' onclick='addWaypointToPath()'>Add to Path</button></div>",
@@ -1449,7 +1701,7 @@
             "<h6 style='margin-bottom: 8px'>" +
             "No Go Zone" +
             "</h6>" +
-            "<span style='color: rgba(231, 24, 24, 1); margin-top: 4px; font-weight: 600'>Reason: Jagged Rock Formation" +
+            "<span style='color: rgba(231, 24, 24, 1); margin-top: 4px; font-weight: 600'>Jagged Rock Formation" +
             "</span></div>";
 
           setTimeout(() => {
