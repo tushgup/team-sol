@@ -8,11 +8,44 @@ html, body {
 } */
 
 body {
-  /* overflow: hidden; */
+  overflow: hidden;
   background-color: #262626;
   color: #fff;
   font-family: "Rubik", sans-serif;
 }
+
+.holy-grail {
+  min-height: 100vh;
+}
+
+.holy-grail,
+.holy-grail-body {
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
+}
+
+.mapContainer {
+  flex: 1 1 auto;
+}
+
+@media (min-width: 768px) {
+	/**
+	 * Body items are now side by side
+	 */
+	.holy-grail-body {
+		flex-direction: row;
+	}
+
+	/**
+	 * Sidebars have a basic 260 width
+	 * and are not really flexible anymore
+	 */
+	.hg-sidebar {
+		flex: 0 0 400px;
+	}
+}
+
 /* 
 .mainContent {
   height: 100%;
@@ -22,6 +55,11 @@ body {
 .mapContainer {
   border: 2px solid red;
 } */
+
+.nestedTabs {
+  max-height: 80vh;
+  overflow-y: scroll;
+}
 
 #mapid {
   height: 93vh;
@@ -44,6 +82,16 @@ body {
   color: #868686;
   background-color: #201f1e;
   width: 50%;
+}
+
+/* .nestedTabs {
+  max-height: 80vh;
+  overflow-y: scroll;
+} */
+
+.accordion-body {
+  max-height: 50vh;
+  overflow-y: scroll;
 }
 
 .nestedTabTextStyle {
@@ -98,6 +146,7 @@ body {
 }
 
 .consumables {
+  margin: 16px 0px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
