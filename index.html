@@ -57,7 +57,10 @@
     <link rel="stylesheet" href="css/easytimer.min.css" />
     <link rel="stylesheet" href="css/draw-on-map.css" />
     <link rel="stylesheet" href="css/L.Control.MousePosition.css" />
-    <link rel="stylesheet" href="css/leaflet.contextmenu.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://rawgit.com/aratcliffe/Leaflet.contextmenu/master/dist/leaflet.contextmenu.css"
+    />
     <link rel="stylesheet" href="css/L.Icon.Pulse.css" />
     <link rel="stylesheet" href="css/L.Icon.FontAwesome.css" />
 
@@ -725,7 +728,7 @@
                           End
                         </button>
                       </div>
-                      
+
                       <ul class="procedure-step-list">
                         <li
                           class="my-2"
@@ -969,7 +972,6 @@
                           </span>
                         </li>
                       </ul>
-
                     </div>
                   </div>
                 </div>
@@ -981,7 +983,135 @@
               role="tabpanel"
               aria-labelledby="nav-contact-tab"
             >
-              Zone Info
+              <div class="accordion-body">
+                <div class="accordionLabel">
+                  <div>
+                    <h5>Zone A</h5>
+                    <p
+                      style="text-transform: uppercase; color: gray"
+                      class="my-0"
+                    >
+                      Task 1
+                    </p>
+                    <div id="task1Timer" class="timerHeader">
+                      <p class="my-0">
+                        PET Timer:
+                        <span class="task1TimerValues">00:00:00</span>
+                      </p>
+                    </div>
+                  </div>
+                  <span class="nestedTabTextStyle mx-2">
+                    <i class="ph-timer mx-2"></i> 30 min
+                  </span>
+                </div>
+                <h5 class="my-2">Goals</h5>
+                <ul class="procedure-step-list">
+                  <li class="my-2">
+                    <input type="checkbox" />
+                    <span class="editableStep">
+                      Collect surface soil from 3 different locations
+                    </span>
+                  </li>
+                  <li class="my-2">
+                    <input type="checkbox" />
+                    <span class="editableStep">
+                      Collect a core sample from 3 different locations
+                    </span>
+                  </li>
+                  <li class="my-2">
+                    <input type="checkbox" />
+                    <span class="editableStep">
+                      Collect 3 basalt rocks
+                    </span>
+                  </li>
+                </ul>
+
+                <hr />
+                <div class="accordionLabel">
+                  <div>
+                    <h5>Zone B</h5>
+                    <p
+                      style="text-transform: uppercase; color: gray"
+                      class="my-0"
+                    >
+                      Task 2
+                    </p>
+                    <div id="task2Timer" class="timerHeader">
+                      <p class="my-0">
+                        PET Timer:
+                        <span class="task2TimerValues">00:00:00</span>
+                      </p>
+                    </div>
+                  </div>
+                  <span class="nestedTabTextStyle mx-2">
+                    <i class="ph-timer mx-2"></i> 90 min
+                  </span>
+                </div>
+                <h5 class="my-2">Goals</h5>
+                <ul class="procedure-step-list">
+                  <li class="my-2">
+                    <input type="checkbox" />
+                    <span class="editableStep">
+                      Take 3 macro photographs
+                    </span>
+                  </li>
+                  <li class="my-2">
+                    <input type="checkbox" />
+                    <span class="editableStep">
+                      Take 3 wide angle photographs
+                    </span>
+                  </li>
+                  <li class="my-2">
+                    <input type="checkbox" />
+                    <span class="editableStep">
+                      Take 3 panoramic photographs 
+                    </span>
+                  </li>
+                </ul>
+
+                <hr />
+                <div class="accordionLabel">
+                  <div>
+                    <h5>Zone C</h5>
+                    <p
+                      style="text-transform: uppercase; color: gray"
+                      class="my-0"
+                    >
+                      Task 3
+                    </p>
+                    <div id="task3Timer" class="timerHeader">
+                      <p class="my-0">
+                        PET Timer:
+                        <span class="task3TimerValues">00:00:00</span>
+                      </p>
+                    </div>
+                  </div>
+                  <span class="nestedTabTextStyle mx-2">
+                    <i class="ph-timer mx-2"></i> 60 min
+                  </span>
+                </div>
+                <h5 class="my-2">Goals</h5>
+                <ul class="procedure-step-list">
+                  <li class="my-2">
+                    <input type="checkbox" />
+                    <span class="editableStep">
+                      Collect surface soil from 3 different locations
+                    </span>
+                  </li>
+                  <li class="my-2">
+                    <input type="checkbox" />
+                    <span class="editableStep">
+                      Collect a core sample from 3 different locations
+                    </span>
+                  </li>
+                  <li class="my-2">
+                    <input type="checkbox" />
+                    <span class="editableStep">
+                      Collect 3 basalt rocks
+                    </span>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -1020,7 +1150,7 @@
     <script src="js/popupMod.js" type="text/javascript"></script>
     <script src="js/draw-on-map.min.js"></script>
     <script src="js/L.Control.MousePosition.js"></script>
-    <script src="js/leaflet.contextmenu.min.js"></script>
+    <script src="https://rawgit.com/aratcliffe/Leaflet.contextmenu/master/dist/leaflet.contextmenu.js"></script>
     <script src="js/L.Icon.Pulse.js"></script>
     <script
       src="https://kit.fontawesome.com/b41bf0afa7.js"
@@ -1043,11 +1173,13 @@
         ).toLocaleString("en-US", {
           minimumIntegerDigits: 2,
           useGrouping: false,
-        });;
-        var minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60)).toLocaleString("en-US", {
+        });
+        var minutes = Math.floor(
+          (timeLeft % (1000 * 60 * 60)) / (1000 * 60)
+        ).toLocaleString("en-US", {
           minimumIntegerDigits: 2,
           useGrouping: false,
-        });;
+        });
         var seconds = Math.floor(
           (timeLeft % (1000 * 60)) / 1000
         ).toLocaleString("en-US", {
@@ -1272,19 +1404,6 @@
       mymap = L.map("mapid", {
         minZoom: 3,
         maxZoom: 8,
-      }).setView(evLocation, 5);
-
-      L.control.mousePosition({ lngFirst: true }).addTo(mymap);
-
-      var pulsingIcon = L.icon.pulse({
-        iconSize: [20, 20],
-        color: "#F8E71C",
-        fillColor: "#F8E71C",
-      });
-
-      var markerPulse = L.marker([-7.258252, -132.954745], {
-        icon: pulsingIcon,
-        setZIndexOffset: 1000,
         contextmenu: true,
         contextmenuWidth: 140,
         contextmenuItems: [
@@ -1304,7 +1423,24 @@
             callback: tagPhoto,
           },
         ],
+      }).setView(evLocation, 5);
+
+      L.control.mousePosition({ lngFirst: true }).addTo(mymap);
+
+      var pulsingIcon = L.icon.pulse({
+        iconSize: [20, 20],
+        color: "#F8E71C",
+        fillColor: "#F8E71C",
+      });
+
+      var markerPulse = L.marker([-7.258252, -132.954745], {
+        icon: pulsingIcon,
+        setZIndexOffset: 1000,
       }).addTo(mymap);
+
+      markerPulse.bindContextMenu({
+        
+      });
 
       markerPulse.bindTooltip("EV Location", {
         offset: [5, 0],
@@ -1312,7 +1448,7 @@
       });
 
       var habitatMarker = L.marker([-14.089349, -142.878465], {
-        icon: habitatIcon
+        icon: habitatIcon,
       }).addTo(mymap);
 
       habitatMarker.bindTooltip("IV Habitat", {
@@ -1403,8 +1539,6 @@
       //     }
       //   )
       //   .addTo(mymap);
-
-      
 
       var polyline = L.polyline(latlngs, {
         color: "white",
@@ -1536,11 +1670,11 @@
         polyline.addLatLng(latlng);
       }
 
-      function onMapClick(e) {
-        console.log(e.latlng.toString());
-      }
+      // function onMapClick(e) {
+      //   console.log(e.latlng.toString());
+      // }
 
-      mymap.on("click", onMapClick);
+      // mymap.on("click", onMapClick);
 
       var graphicScale = L.control.graphicScale({ fill: "fill" }).addTo(mymap);
 
@@ -1718,34 +1852,34 @@
         }
       }
 
-      var zoneALabel = L.divIcon({ 
-        iconSize: new L.Point(50, 50), 
-        html: '<span>Zone A</span>',
-        className: 'zone-label'
+      var zoneALabel = L.divIcon({
+        iconSize: new L.Point(50, 50),
+        html: "<span>Zone A</span>",
+        className: "zone-label",
       });
 
       var zoneAMarker = L.marker([-4.828093, -129.455109], {
-        icon: zoneALabel
+        icon: zoneALabel,
       }).addTo(mymap);
 
-      var zoneBLabel = L.divIcon({ 
-        iconSize: new L.Point(50, 50), 
-        html: '<span>Zone B</span>',
-        className: 'zone-label'
+      var zoneBLabel = L.divIcon({
+        iconSize: new L.Point(50, 50),
+        html: "<span>Zone B</span>",
+        className: "zone-label",
       });
 
       var zoneBMarker = L.marker([-6.895472, -119.467142], {
-        icon: zoneBLabel
+        icon: zoneBLabel,
       }).addTo(mymap);
 
-      var zoneCLabel = L.divIcon({ 
-        iconSize: new L.Point(50, 50), 
-        html: '<span>Zone C</span>',
-        className: 'zone-label'
+      var zoneCLabel = L.divIcon({
+        iconSize: new L.Point(50, 50),
+        html: "<span>Zone C</span>",
+        className: "zone-label",
       });
 
       var zoneCMarker = L.marker([-20.591331, -140.484487], {
-        icon: zoneCLabel
+        icon: zoneCLabel,
       }).addTo(mymap);
 
       // Geoman Event Handling
