@@ -94,6 +94,12 @@ body {
   overflow-y: scroll;
 }
 
+.accordion-body-zones {
+  max-height: 80vh;
+  overflow-y: scroll;
+  padding: 16px;
+}
+
 .nestedTabTextStyle {
   display: flex;
   align-items: center;
@@ -241,7 +247,7 @@ a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leafle
 .procedure-step-list {
   margin-top: 8px;
   max-height: 50vh;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 
 .timerHeader {

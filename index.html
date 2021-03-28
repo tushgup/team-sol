@@ -982,7 +982,7 @@
               role="tabpanel"
               aria-labelledby="nav-contact-tab"
             >
-              <div class="accordion-body">
+              <div class="accordion-body-zones">
                 <div class="accordionLabel">
                   <div>
                     <h5>Zone A</h5>
@@ -1745,23 +1745,23 @@
         return (ev.returnValue = "Are you sure you want to refresh this page?");
       });
 
-      var ZoomViewer = L.Control.extend({
-        onAdd: function () {
-          var container = L.DomUtil.create("div");
-          var gauge = L.DomUtil.create("div");
-          container.style.width = "200px";
-          container.style.background = "rgba(255,255,255,0.5)";
-          container.style.textAlign = "left";
-          mymap.on("zoomstart zoom zoomend", function (ev) {
-            gauge.innerHTML = "Zoom level: " + mymap.getZoom();
-          });
-          container.appendChild(gauge);
+      // var ZoomViewer = L.Control.extend({
+      //   onAdd: function () {
+      //     var container = L.DomUtil.create("div");
+      //     var gauge = L.DomUtil.create("div");
+      //     container.style.width = "200px";
+      //     container.style.background = "rgba(255,255,255,0.5)";
+      //     container.style.textAlign = "left";
+      //     mymap.on("zoomstart zoom zoomend", function (ev) {
+      //       gauge.innerHTML = "Zoom level: " + mymap.getZoom();
+      //     });
+      //     container.appendChild(gauge);
 
-          return container;
-        },
-      });
+      //     return container;
+      //   },
+      // });
 
-      new ZoomViewer().addTo(mymap);
+      // new ZoomViewer().addTo(mymap);
 
       mymap.pm.setGlobalOptions({
         measurements: { measurement: true, displayFormat: "metric" },
