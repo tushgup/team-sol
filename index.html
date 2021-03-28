@@ -1583,7 +1583,7 @@
           feature.properties.reason +
           "</span></div>";
 
-        layer.bindPopup(popupContent, { removable: true, editable: true });
+        layer.bindPopup(popupContent, { editable: true });
       }
 
       var goZoneStyle = {
@@ -1846,7 +1846,7 @@
           setTimeout(() => {
             newNoGoZone.addTo(mymap);
             newNoGoZone
-              .bindPopup(popupContent, { removable: true, editable: true })
+              .bindPopup(popupContent, { editable: true })
               .openPopup();
           }, 7000);
         }
