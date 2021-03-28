@@ -196,13 +196,13 @@
                       <div class="timerButtonContainer">
                         <button
                           type="button"
-                          class="btn btn-success startTask1Button"
+                          class="btn btn-light startTask1Button"
                         >
                           Start
                         </button>
                         <button
                           type="button"
-                          class="btn btn-light stopTask1Button"
+                          class="btn btn-secondary stopTask1Button"
                         >
                           End
                         </button>
@@ -495,13 +495,13 @@
                       <div class="timerButtonContainer">
                         <button
                           type="button"
-                          class="btn btn-success startTask2Button"
+                          class="btn btn-light startTask2Button"
                         >
                           Start
                         </button>
                         <button
                           type="button"
-                          class="btn btn-light stopTask2Button"
+                          class="btn btn-secondary stopTask2Button"
                         >
                           End
                         </button>
@@ -717,13 +717,13 @@
                       <div class="timerButtonContainer">
                         <button
                           type="button"
-                          class="btn btn-success startTask3Button"
+                          class="btn btn-light startTask3Button"
                         >
                           Start
                         </button>
                         <button
                           type="button"
-                          class="btn btn-light stopTask3Button"
+                          class="btn btn-secondary stopTask3Button"
                         >
                           End
                         </button>
@@ -1208,13 +1208,26 @@
 
       // PET Timers
       var task1Timer = new easytimer.Timer();
+      var startTask1Button = document.querySelector('.startTask1Button');
+      var stopTask1Button = document.querySelector('.stopTask1Button');
+      var startTask2Button = document.querySelector('.startTask2Button');
+      var stopTask2Button = document.querySelector('.stopTask2Button');
+      var startTask3Button = document.querySelector('.startTask3Button');
+      var stopTask3Button = document.querySelector('.stopTask3Button');
+
 
       $(".startTask1Button").click(function () {
         task1Timer.start();
+        startTask1Button.classList.remove("btn-light");
+        startTask1Button.classList.add("btn-success");
+        startTask1Button.textContent = "In Progress";
       });
 
       $(".stopTask1Button").click(function () {
         task1Timer.stop();
+        stopTask1Button.textContent = "Task Finished";
+        stopTask1Button.style.width = "100%";
+        startTask1Button.remove();
       });
 
       task1Timer.addEventListener("secondsUpdated", function (e) {
@@ -1233,10 +1246,16 @@
 
       $(".startTask2Button").click(function () {
         task2Timer.start();
+        startTask2Button.classList.remove("btn-light");
+        startTask2Button.classList.add("btn-success");
+        startTask2Button.textContent = "In Progress";
       });
 
       $(".stopTask2Button").click(function () {
         task2Timer.stop();
+        stopTask2Button.textContent = "Task Finished";
+        stopTask2Button.style.width = "100%";
+        startTask2Button.remove();
       });
 
       task2Timer.addEventListener("secondsUpdated", function (e) {
@@ -1255,10 +1274,16 @@
 
       $(".startTask3Button").click(function () {
         task3Timer.start();
+        startTask3Button.classList.remove("btn-light");
+        startTask3Button.classList.add("btn-success");
+        startTask3Button.textContent = "In Progress";
       });
 
       $(".stopTask3Button").click(function () {
         task3Timer.stop();
+        stopTask3Button.textContent = "Task Finished";
+        stopTask3Button.style.width = "100%";
+        startTask3Button.remove();
       });
 
       task3Timer.addEventListener("secondsUpdated", function (e) {
