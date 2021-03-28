@@ -667,8 +667,7 @@
                         >
                           <input type="checkbox" />
                           <span class="editableStep">
-                            2.6. Return camera A2 (macro), camera A3 (wide), and
-                            camera A6 (pan) to the tool kit.
+                            2.6. Report recon information through tagging.
                           </span>
                         </li>
                       </ul>
@@ -1463,11 +1462,7 @@
         setZIndexOffset: 1000,
       }).addTo(mymap);
 
-      markerPulse.bindContextMenu({
-        
-      });
-
-      markerPulse.bindTooltip("EV Location", {
+      markerPulse.bindTooltip("<div> <h6 style='margin-bottom: 4px;'>EV Location</h6> [" + markerPulse._latlng.lat + ',' + markerPulse._latlng.lng + "] </div>", {
         offset: [5, 0],
         className: "tooltipClass",
       });
@@ -1670,6 +1665,7 @@
       var plannedWaypoints = L.geoJSON(
         { features: [plannedWaypoints] },
         {
+          setZIndexOffset: 5,
           style: plannedWaypointLineStyle,
         }
       ).addTo(mymap);
@@ -1687,11 +1683,13 @@
       //   }
       // ).addTo(mymap);
 
-      function handleEVMarkerMove(latlng) {
+      function handleEVMarkerMove(latlng, duration = 10000) {
+
         markerPulse.slideTo(latlng, {
-          duration: 7500,
+          duration: duration,
           keepAtCenter: false,
         });
+        markerPulse.setTooltipContent("<div> <h6 style='margin-bottom: 4px;'>EV Location</h6> [" + latlng[0] + ',' + latlng[1] + "] </div>");
         polyline.addLatLng(latlng);
       }
 
@@ -1772,16 +1770,18 @@
       // Task 2 New Waypoint
       var alternateWaypointMarker = L.marker([-8.101552, -114.149182], {
         icon: poiIcon,
+        setZIndexOffset: 10
       }).addTo(mymap);
+
       alternateWaypointMarker.bindPopup(
-        "<div> <p>Point of Interest #5: Potential interesting rock formation</p> <button class='btn btn-primary' type='button' onclick='addWaypointToPath()'>Add to Path</button></div>",
+        "<div style='width: 200px;'> <h6 style='margin-bottom: 4px;'>Point of Interest: Potential interesting rock formation</h6> <p>This will add 18 minutes to your EVA.</p> <button class='btn btn-primary' type='button' onclick='addWaypointToPath()' height='25' width='100'>Add to EVA</button></div>",
         {}
       );
 
       function addWaypointToPath() {
         handleEVMarkerMove([-8.101552, -114.149182]);
         $("#task2List").append(
-          "<li data-id='6' data-item-sortable-id='6' draggable='true' role='option' aria-grabbed='false'> <input type='checkbox' id='task2FinishBox' onchange='handleTask2Finish(this)'/> <span class='editableStep'> 2.7. Report recon information through tagging.</span></li>"
+          "<li data-id='6' data-item-sortable-id='6' draggable='true' role='option' aria-grabbed='false'> <input type='checkbox' id='task2FinishBox' onchange='handleTask2Finish(this)'/> <span class='editableStep'> 2.7. Return camera A2 (macro), camera A3 (wide), and camera A6 (pan) to the tool kit. </span></li>"
         );
       }
 
@@ -1841,7 +1841,7 @@
 
       function handleTask2Finish(checkbox) {
         if (checkbox.checked) {
-          handleEVMarkerMove([-11.71932, -122.178986]);
+          handleEVMarkerMove([-11.71932, -122.178986], 30000);
 
           var newNoGoZone = L.polygon(
             [
@@ -1873,7 +1873,7 @@
             newNoGoZone
               .bindPopup(popupContent, { editable: true })
               .openPopup();
-          }, 7000);
+          }, 28000);
         }
       }
 
