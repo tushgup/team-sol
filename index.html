@@ -57,6 +57,7 @@
     <link rel="stylesheet" href="css/easytimer.min.css" />
     <link rel="stylesheet" href="css/draw-on-map.css" />
     <link rel="stylesheet" href="css/L.Control.MousePosition.css" />
+    <link rel="stylesheet" href="css/leaflet-compass.min.css" />
     <link
       rel="stylesheet"
       href="https://rawgit.com/aratcliffe/Leaflet.contextmenu/master/dist/leaflet.contextmenu.css"
@@ -1142,6 +1143,7 @@
     ></script>
     <script src="https://unpkg.com/leaflet.marker.slideto@0.2.0/Leaflet.Marker.SlideTo.js"></script>
     <script src="js/Leaflet.GraphicScale.min.js"></script>
+    <script src="js/leaflet-compass.min.js"></script>
     <!-- <script src="js/leaflet.motion.min.js"></script>
     <script src="js/AnimatedMarker.js"></script> -->
     <script src="js/leaflet.markercluster.js"></script>
@@ -1906,6 +1908,11 @@
       var zoneCMarker = L.marker([-20.591331, -140.484487], {
         icon: zoneCLabel,
       }).addTo(mymap);
+
+      mymap.addControl( new L.Control.Compass({
+        autoActive: true,
+      }) );
+
 
       // Geoman Event Handling
       // listen to vertexes being added to currently drawn layer (called workingLayer)
