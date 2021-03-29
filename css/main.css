@@ -7,6 +7,25 @@ html, body {
   width: 100vw;
 } */
 
+html {
+  scrollbar-face-color: #646464;
+  scrollbar-base-color: #646464;
+  scrollbar-3dlight-color: #646464;
+  scrollbar-highlight-color: #646464;
+  scrollbar-track-color: #000;
+  scrollbar-arrow-color: #000;
+  scrollbar-shadow-color: #646464;
+  scrollbar-dark-shadow-color: #646464;
+}
+
+::-webkit-scrollbar { width: 8px; height: 3px;}
+::-webkit-scrollbar-button {  background-color: #666; }
+::-webkit-scrollbar-track {  background-color: #646464;}
+::-webkit-scrollbar-track-piece { background-color: #000;}
+::-webkit-scrollbar-thumb { height: 50px; background-color: #666; border-radius: 3px;}
+::-webkit-scrollbar-corner { background-color: #646464;}}
+::-webkit-resizer { background-color: #666;}
+
 body {
   overflow: hidden;
   background-color: #262626;
@@ -57,8 +76,8 @@ body {
 } */
 
 .nestedTabs {
-  max-height: 80vh;
-  overflow-y: scroll;
+  flex: 1;
+  overflow-y: auto;
 }
 
 #mapid {
@@ -90,13 +109,12 @@ body {
 } */
 
 .accordion-body {
-  max-height: 50vh;
-  overflow-y: scroll;
+  /* max-height: 50vh; */
+  /* overflow-y: scroll; */
+  scrollbar-color: dark;
 }
 
 .accordion-body-zones {
-  max-height: 80vh;
-  overflow-y: scroll;
   padding: 16px;
 }
 
@@ -152,6 +170,7 @@ body {
 }
 
 .consumables {
+  flex: 0 0 75px;
   margin: 16px 0px;
   display: flex;
   flex-direction: row;
@@ -228,6 +247,15 @@ a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leafle
 .procedure-step-list {
   list-style-type: none;
   padding-left: 0;
+  margin-top: 8px;
+  max-height: 50vh;
+  overflow-y: scroll;
+}
+
+.goals-step-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 8px;
 }
 
 .sub-task-list {
@@ -242,12 +270,6 @@ a.leaflet-popup-remove-button:hover, a.leaflet-popup-edit-button:hover, a.leafle
 .sub-task-list > li > span {
   /* border-bottom: 1px dashed gray; */
   margin-left: 4px;
-}
-
-.procedure-step-list {
-  margin-top: 8px;
-  max-height: 50vh;
-  overflow-y: scroll;
 }
 
 .timerHeader {

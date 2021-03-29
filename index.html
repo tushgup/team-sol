@@ -108,40 +108,40 @@
         <div id="mapid"></div>
       </section>
       <div class="hg-sidebar sidebarContent">
+        <nav>
+          <div class="nav narbar-dark nav-tabs" id="nav-tab" role="tablist">
+            <button
+              class="nav-link active"
+              id="nav-home-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-home"
+              type="button"
+              role="tab"
+              aria-controls="nav-home"
+              aria-selected="true"
+            >
+              <span class="nestedTabTextStyle">
+                <i class="ph-book-open mx-2"></i>
+                Procedure
+              </span>
+            </button>
+            <button
+              class="nav-link"
+              id="nav-contact-tab"
+              data-bs-toggle="tab"
+              data-bs-target="#nav-contact"
+              type="button"
+              role="tab"
+              aria-controls="nav-contact"
+              aria-selected="false"
+            >
+              <span class="nestedTabTextStyle">
+                <i class="ph-map-pin-line mx-2"></i> Zones
+              </span>
+            </button>
+          </div>
+        </nav>
         <div class="nestedTabs">
-          <nav>
-            <div class="nav narbar-dark nav-tabs" id="nav-tab" role="tablist">
-              <button
-                class="nav-link active"
-                id="nav-home-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-home"
-                type="button"
-                role="tab"
-                aria-controls="nav-home"
-                aria-selected="true"
-              >
-                <span class="nestedTabTextStyle">
-                  <i class="ph-book-open mx-2"></i>
-                  Procedure
-                </span>
-              </button>
-              <button
-                class="nav-link"
-                id="nav-contact-tab"
-                data-bs-toggle="tab"
-                data-bs-target="#nav-contact"
-                type="button"
-                role="tab"
-                aria-controls="nav-contact"
-                aria-selected="false"
-              >
-                <span class="nestedTabTextStyle">
-                  <i class="ph-map-pin-line mx-2"></i> Zones
-                </span>
-              </button>
-            </div>
-          </nav>
           <div class="tab-content" id="nav-tabContent">
             <div
               class="tab-pane fade show active"
@@ -1005,7 +1005,7 @@
                   </span>
                 </div>
                 <h5 class="my-2">Goals</h5>
-                <ul class="procedure-step-list">
+                <ul class="goals-step-list">
                   <li class="my-2">
                     <input type="checkbox" />
                     <span class="editableStep">
@@ -1048,7 +1048,7 @@
                   </span>
                 </div>
                 <h5 class="my-2">Goals</h5>
-                <ul class="procedure-step-list">
+                <ul class="goals-step-list">
                   <li class="my-2">
                     <input type="checkbox" />
                     <span class="editableStep">
@@ -1091,7 +1091,7 @@
                   </span>
                 </div>
                 <h5 class="my-2">Goals</h5>
-                <ul class="procedure-step-list">
+                <ul class="goals-step-list">
                   <li class="my-2">
                     <input type="checkbox" />
                     <span class="editableStep">
@@ -1695,11 +1695,11 @@
         polyline.addLatLng(latlng);
       }
 
-      // function onMapClick(e) {
-      //   console.log(e.latlng.toString());
-      // }
+      function onMapClick(e) {
+        console.log(e.latlng.toString());
+      }
 
-      // mymap.on("click", onMapClick);
+      mymap.on("click", onMapClick);
 
       var graphicScale = L.control.graphicScale({ fill: "fill" }).addTo(mymap);
 
@@ -1847,13 +1847,18 @@
 
           var newNoGoZone = L.polygon(
             [
-              [-12.92753, -124.927565],
-              [-13.013246, -123.741041],
-              [-14.188753, -123.543288],
-              [-14.806152, -124.444166],
-              [-14.465731, -125.542799],
-              [-13.591042, -125.476881],
-              [-12.92753, -124.927565],
+              [-12.634067, -123.477799],
+              [-13.754878, -123.145886],
+              [-15.31825, -123.771868],
+              [-15.887392, -125.080563],
+              [-15.537542, -126.139611],
+              [-15.047387, -126.731085],
+              [-14.079876, -127.0559],
+              [-13.048494, -126.803113],
+              [-12.222126, -126.072267],
+              [-12.013053, -124.876353],
+              [-12.220029, -123.892295],
+              [-12.634067, -123.477799],
             ],
             {
               fillColor: "rgba(231, 24, 24, 0.8)",
@@ -1912,46 +1917,6 @@
       mymap.addControl( new L.Control.Compass({
         autoActive: true,
       }) );
-
-
-      // Geoman Event Handling
-      // listen to vertexes being added to currently drawn layer (called workingLayer)
-      // mymap.on("pm:drawstart", ({ workingLayer }) => {
-      // workingLayer.on("pm:snap", (e) => {
-      // console.log(e);
-      // if (e.shape === "Marker") {
-      // e.marker.bindPopup('<p>Hello world!<br />This is a nice popup.</p>').openPopup();
-
-      // e.marker.bindPopup('<p>Hello world!<br />This is a nice popup.</p>', { removable: true, editable: true });
-
-      // var popup = L.popup()
-      // .setLatLng([ e.snapLatLng.lat,e.snapLatLng.lng])
-      // .setContent('<p>Hello world!<br />This is a nice popup.</p>')
-      // .openOn(mymap);
-
-      // let feature = {
-      //   id: (Math.random() * Math.floor(99999999)).toString(),
-      //   properties: { type: "taggedLocation" },
-      //   type: "Feature",
-      //   geometry: {
-      //     type: "Point",
-      //     coordinates: [e.snapLatLng.lat,e.snapLatLng.lng],
-      //   },
-      // };
-
-      // var popupContent = "<p>[" + feature.geometry.coordinates + "]:</p>";
-
-      // if (feature.properties && feature.properties.popupContent) {
-      //   popupContent += feature.properties.popupContent;
-      // }
-
-      // e.layer.bindPopup(popupContent, {
-      //   removable: true,
-      //   editable: true,
-      // });
-      //     }
-      //   });
-      // });
     </script>
   </body>
 </html>
