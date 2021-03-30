@@ -1614,20 +1614,27 @@
             icon: yellowSquareMarker,
           },
         },
+        templineStyle: { color: '#333', dashArray: 6 },
+        hintlineStyle: { color: '#333', dashArray: 6 },
+      });
+
+      mymap.pm.setPathOptions({
+        color: "rgba(49, 177, 77, 1)",
+        weight: 5,
       });
 
       mymap.on("pm:create", (e) => {
-        if(e.shape === 'Marker') {
+        if (e.shape === "Marker") {
           e.marker
-          .bindPopup(
-            "<p>[" +
-              e.marker._latlng.lng.toPrecision(5) +
-              ", " +
-              e.marker._latlng.lat.toPrecision(5) +
-              "]: </p>",
-            { removable: true, editable: true }
-          )
-          .openPopup();
+            .bindPopup(
+              "<p>[" +
+                e.marker._latlng.lng.toPrecision(5) +
+                ", " +
+                e.marker._latlng.lat.toPrecision(5) +
+                "]: </p>",
+              { removable: true, editable: true }
+            )
+            .openPopup();
         }
       });
 
