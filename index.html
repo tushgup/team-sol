@@ -1305,7 +1305,7 @@
         minZoom: 3,
         maxZoom: 8,
         contextmenu: true,
-        contextmenuWidth: 140,
+        contextmenuWidth: 160,
         contextmenuItems: [
           // {
           //   text: "Move EV Marker",
@@ -1313,12 +1313,12 @@
           //   callback: handleEVMarkerMove,
           // },
           {
-            text: "Tag Location",
+            text: "Tag as location site",
             icon: "assets/icons/note.png",
             callback: tagLocation,
           },
           {
-            text: "Tag Photo",
+            text: "Tag as photo site",
             icon: "assets/icons/photo.png",
             callback: tagPhoto,
           },
@@ -1362,6 +1362,15 @@
       // add leaflet-geoman controls with some options to the map
       mymap.pm.addControls({
         position: "topleft",
+        drawMarker: false,
+        drawCircleMarker: false,
+        drawRectangle: false,
+        cutPolygon: false,
+        splitMode: false,
+        oneBlock: true,
+        pinningOption: false,
+        snappingOption: false,
+        optionsControls: false
       });
 
       var marsLabeledMapLayer = L.tileLayer(
