@@ -1844,18 +1844,18 @@
 
       L.control
         .coordinates({
-          position: "bottomleft", //optional default "bootomright"
-          decimals: 3, //optional default 4
+          position: "bottomright", //optional default "bootomright"
+          decimals: 0, //optional default 4
           decimalSeperator: ".", //optional default "."
           labelTemplateLat: "Lat: {y}", //optional default "Lat: {y}"
           labelTemplateLng: "Lng: {x}", //optional default "Lng: {x}"
           enableUserInput: true, //optional default true
           useLatLngOrder: false, //ordering of labels, default false-> lng-lat
           labelFormatterLng: function (lng) {
-            return 'Lng: ' + lng;
+            return 'Lng: ' + lng.toPrecision(5);
           }, //optional default none,
           labelFormatterLat: function (lat) {
-            return 'Lat: ' + lat;
+            return 'Lat: ' + lat.toPrecision(5);
           }, //optional default none
         })
         .addTo(mymap);
