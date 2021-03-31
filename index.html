@@ -56,7 +56,7 @@
     <link rel="stylesheet" href="css/popupMod.css" />
     <link rel="stylesheet" href="css/easytimer.min.css" />
     <link rel="stylesheet" href="css/draw-on-map.css" />
-    <link rel="stylesheet" href="css/L.Control.MousePosition.css" />
+    <link rel="stylesheet" href="css/Leaflet.Coordinates-0.1.5.css" />
     <link rel="stylesheet" href="css/leaflet-compass.min.css" />
     <link
       rel="stylesheet"
@@ -1031,7 +1031,7 @@
     <script src="js/leaflet.markercluster.js.map"></script>
     <script src="js/popupMod.js" type="text/javascript"></script>
     <script src="js/draw-on-map.min.js"></script>
-    <script src="js/L.Control.MousePosition.js"></script>
+    <script src="js/Leaflet.Coordinates-0.1.5.min.js"></script>
     <script src="https://rawgit.com/aratcliffe/Leaflet.contextmenu/master/dist/leaflet.contextmenu.js"></script>
     <script src="js/L.Icon.Pulse.js"></script>
     <script
@@ -1330,8 +1330,6 @@
           },
         ],
       }).setView(evLocation, 5);
-
-      L.control.mousePosition({ lngFirst: true }).addTo(mymap);
 
       var pulsingIcon = L.icon.pulse({
         iconSize: [20, 20],
@@ -1843,6 +1841,24 @@
           }
         };
       });
+
+      L.control
+        .coordinates({
+          position: "bottomleft", //optional default "bootomright"
+          decimals: 3, //optional default 4
+          decimalSeperator: ".", //optional default "."
+          labelTemplateLat: "Lat: {y}", //optional default "Lat: {y}"
+          labelTemplateLng: "Lng: {x}", //optional default "Lng: {x}"
+          enableUserInput: true, //optional default true
+          useLatLngOrder: false, //ordering of labels, default false-> lng-lat
+          labelFormatterLng: function (lng) {
+            return 'Lng: ' + lng;
+          }, //optional default none,
+          labelFormatterLat: function (lat) {
+            return 'Lat: ' + lat;
+          }, //optional default none
+        })
+        .addTo(mymap);
     </script>
   </body>
 </html>
