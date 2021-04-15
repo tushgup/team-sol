@@ -3,5 +3,5 @@
 # Team Sol Explorers: NASA x Georgia Tech's MS HCI Program
 Researching and designing interfaces that assist astronauts in exploring Mars efficiently and autonomously. This is my GT thesis project in collaboration with NASA and JPL.
 
-[Check out the live prototype.](https://tushgup.github.io/team-sol).
+[Check out the live prototype.](https://tushgup.github.io/team-sol). <br>
 [Read more about the case study on my portfolio](https://www.tushar.work/design/nasa).
